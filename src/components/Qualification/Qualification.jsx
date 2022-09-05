@@ -23,8 +23,7 @@ const Qualification = () => {
                                 ? "qualification__button button--flex qualification__active"
                                 : "qualification__button button--flex"
                         }
-                        onClick={() => toggleTab(1)}
-                        >
+                        onClick={() => toggleTab(1)}>
                         <i className="uil uil-graduation-cap qualification__icon"></i>
                         Education
                     </div>
@@ -34,8 +33,7 @@ const Qualification = () => {
                                 ? "qualification__button button--flex qualification__active"
                                 : "qualification__button button--flex"
                         }
-                        onClick={() => toggleTab(2)}
-                        >
+                        onClick={() => toggleTab(2)}>
                         <i className="uil uil-briefcase-alt qualification__icon"></i>
                         Experience
                     </div>
@@ -43,11 +41,12 @@ const Qualification = () => {
             </div>
 
             <div className="qualification__sections">
-                <div className={
-                    toggle === 1
-                        ? "qualification__content qualification__content-active"
-                        : "qualification__content"
-                }>
+                <div
+                    className={
+                        toggle === 1
+                            ? "qualification__content qualification__content-active"
+                            : "qualification__content"
+                    }>
                     <div className="qualification__data">
                         <div>
                             <h3 className="qualification__title">
@@ -74,26 +73,27 @@ const Qualification = () => {
 
                         <div>
                             <h3 className="qualification__title">
-                                Web Developer
+                                Study at ICTU
                             </h3>
                             <span className="qualification__subtitle"></span>
                             <div className="qualification__calender">
                                 <i className="uil uil-calendar-alt"></i>
-                                2021 - Present
+                                2020 - Present
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className={
-                    toggle === 2
-                        ? "qualification__content qualification__content-active"
-                        : "qualification__content"
-                }>
+                <div
+                    className={
+                        toggle === 2
+                            ? "qualification__content qualification__content-active"
+                            : "qualification__content"
+                    }>
                     <div className="qualification__data">
                         <div>
                             <h3 className="qualification__title">
-                                Web Developer
+                                Front-end
                             </h3>
                             <span className="qualification__subtitle"></span>
                             <div className="qualification__calender">
@@ -115,7 +115,7 @@ const Qualification = () => {
                         </div>
 
                         <div>
-                            <h3 className="qualification__title">ICTU</h3>
+                            <h3 className="qualification__title">Discord.js</h3>
                             <span className="qualification__subtitle"></span>
                             <div className="qualification__calender">
                                 <i className="uil uil-calendar-alt"></i>

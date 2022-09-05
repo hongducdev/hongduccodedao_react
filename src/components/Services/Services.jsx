@@ -39,7 +39,9 @@ const Services = () => {
                                 : "services__modal"
                         }>
                         <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => setToggle(0)}></i>
+                            <i
+                                className="uil uil-times services__modal-close"
+                                onClick={() => setToggle(0)}></i>
 
                             <h3 className="services__modal-title">
                                 Front-end Developer
@@ -94,33 +96,24 @@ const Services = () => {
                                 : "services__modal"
                         }>
                         <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => setToggle(0)}></i>
+                            <i
+                                className="uil uil-times services__modal-close"
+                                onClick={() => setToggle(0)}></i>
 
                             <h3 className="services__modal-title">
                                 Back-end Developer
                             </h3>
                             <p className="services__modal-description">
-                                Service with more 1 year of experience.
-                                Providing quality work to clients and companies.
+                                Experience in using Discord.js and handling
+                                logic or data storage of projects.
                             </p>
 
                             <ul className="services__modal-services grid">
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
                                     <p className="services__modal-info">
-                                        I develop the user interface.
-                                    </p>
-                                </li>
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">
-                                        Web page development.
-                                    </p>
-                                </li>
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">
-                                        I create ux element interactions.
+                                        Use Node.js and packages on projects
+                                        that require data and processing logic.
                                     </p>
                                 </li>
                             </ul>
@@ -149,33 +142,31 @@ const Services = () => {
                                 : "services__modal"
                         }>
                         <div className="services__modal-content">
-                            <i className="uil uil-times services__modal-close" onClick={() => setToggle(0)}></i>
+                            <i
+                                className="uil uil-times services__modal-close"
+                                onClick={() => setToggle(0)}></i>
 
                             <h3 className="services__modal-title">
                                 Discord.js Coder
                             </h3>
                             <p className="services__modal-description">
-                                Service with more 1 year of experience.
-                                Providing quality work to clients and companies.
+                                Using Discord and learning about Discord.js for
+                                almost 1 year. Application to management and
+                                entertainment.
                             </p>
 
                             <ul className="services__modal-services grid">
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
                                     <p className="services__modal-info">
-                                        I develop the user interface.
+                                        I develop bots using Discord.js.
                                     </p>
                                 </li>
                                 <li className="services__modal-service">
                                     <i className="uil uil-check-circle services__modal-icon"></i>
                                     <p className="services__modal-info">
-                                        Web page development.
-                                    </p>
-                                </li>
-                                <li className="services__modal-service">
-                                    <i className="uil uil-check-circle services__modal-icon"></i>
-                                    <p className="services__modal-info">
-                                        I create ux element interactions.
+                                        Use bots to manage and entertain the
+                                        Discord server.
                                     </p>
                                 </li>
                             </ul>

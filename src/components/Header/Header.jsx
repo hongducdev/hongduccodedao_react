@@ -9,7 +9,7 @@ const Header = () => {
     window.addEventListener("scroll", () => {
         const header = document.querySelector(".header");
 
-        if (this.scrollY >= 80) header.classList.add("scroll-header");
+        if (window.scrollY >= 80) header.classList.add("scroll-header");
         else header.classList.remove("scroll-header");
     });
 
