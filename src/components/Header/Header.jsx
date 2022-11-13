@@ -17,7 +17,9 @@ const Header = () => {
         <header className="header">
             <nav className="nav container">
                 <a href="/" className="nav__logo">
-                    <hongduccodedao>
+                    {
+                        '<hongduccodedao/>'
+                    }
                 </a>
                 <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list">
