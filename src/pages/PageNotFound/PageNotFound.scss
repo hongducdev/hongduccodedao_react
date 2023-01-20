@@ -1,0 +1,29 @@
+@use "../../sass/" as *;
+
+.pageNotFound__main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .pageNotFound__title {
+    font-size: var(--big-font-size);
+    margin-bottom: var(--mb-0-25);
+  }
+
+  .pageNotFound__component {
+    text-align: center;
+    margin-top: var(--mb-2);
+  }
+
+  .pageNotFound__text {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-normal);
+  }
+
+  .pageNotFound__button {
+    margin-top: var(--mb-2);
+  }
+}
