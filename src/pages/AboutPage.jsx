@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 const AboutPage = () => {
   return (
     <Fragment>
-      About
+      AboutPage
     </Fragment>
   )
 }
