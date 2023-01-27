@@ -13,11 +13,11 @@ const AboutPage = () => {
             3rd year student majoring in Software Engineering at Thai Nguyen
             University of Information and Communication Technology (
             <HoverLinkText link="https://ictu.edu.vn/">ICTU</HoverLinkText>). I
-            am looking to become a{" "}
+            am looking to become a {" "}
             <HoverLinkText link="https://roadmap.sh/frontend">
               Front-End developer
             </HoverLinkText>
-            . Far beyond the{" "}
+            . Owner and Dev PinkBot._(Discord bot). Far beyond the {" "}
             <HoverLinkText to="https://landing.jobs/blog/fullstack-developer-roadmap/">
               Full-stack developer
             </HoverLinkText>
