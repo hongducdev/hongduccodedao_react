@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 const Layout = () => {
   return (
-    <div className="h-screen relative">
+    <div className="min-h-screen relative">
       <Header />
       <Outlet></Outlet>
       <Footer />

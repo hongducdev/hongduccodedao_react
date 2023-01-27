@@ -15,4 +15,25 @@
   ::selection {
     @apply text-whiteSoft bg-primary;
   }
+
+  // scrollbar
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-lite dark:bg-darkbg;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-darkStroke rounded-xl;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-darkStroke;
+  }
 }
