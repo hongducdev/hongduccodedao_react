@@ -1,13 +1,65 @@
 import React, { Fragment } from "react";
 import HeadingPage from "../components/HeadingPage";
+import HobbiesItem from "../components/HobbiesItem";
 import HoverLinkText from "../components/HoverLinkText";
 import MilestoneItem from "../components/MilestoneItem";
 import TagItem from "../components/TagItem";
 
+const hobbiesArr = [
+  {
+    title: "Game",
+    description:
+      "I'm not a fan of FPS games. I only play Teamfight Tactics (TFT) in my free time. My ingame is HDuc#05102.",
+    tags: [
+      {
+        name: "TFT",
+      },
+    ],
+  },
+  {
+    title: "Mechanical keyboard",
+    description:
+      "When I come into contact with a lot of code, I feel that the feeling that the laptop keyboard gives is not enough to satisfy me. So I got to know the mechanical keyboard. Especially the custom mechanical keyboard.",
+    tags: [
+      {
+        name: "FL-Esports MK870",
+      },
+      {
+        name: "KTT Kang White",
+      },
+      {
+        name: "Keycap FSA Metal Heart",
+      },
+    ],
+  },
+  {
+    title: "Music",
+    description:
+      "I listen to music in my free time, cycling and coding. The genre of music that I often listen to is Lofi.",
+    tags: [
+      {
+        name: "Lofi",
+      },
+      {
+        name: "Sơn Tùng MTP",
+      },
+      {
+        name: "Low G",
+      },
+      {
+        name: "Đen",
+      },
+      {
+        name: "Charlie Puth",
+      },
+    ],
+  },
+];
+
 const AboutPage = () => {
   return (
     <Fragment>
-      <div className="bg-lite dark:bg-darkbg h-full py-[100px]">
+      <div className="bg-lite dark:bg-darkbg h-full lg:py-[100px] pt-[100px] pb-[150px]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
           <HeadingPage title="About Me"></HeadingPage>
           <p className="text-text1 dark:text-text3 text-lg font-medium">
@@ -55,54 +107,18 @@ const AboutPage = () => {
           <div className="mt-10"></div>
           <HeadingPage title="Hobbies" />
           <div className="flex flex-col gap-5">
-            <div>
-              <h3 className="text-text2 dark:text-whiteSoft text-2xl font-semibold relative after:absolute after:w-[10px] after:h-[2px] after:rounded-full after:bg-primary after:bottom-2 after:translate-x-1 after:animate-pulse2 inline-block">
-                Game
-              </h3>
-              <p className="text-text1 dark:text-text3 text-lg font-medium">
-                I'm not a fan of FPS games. I only play Teamfight Tactics (TFT)
-                in my free time. My ingame is HDuc#05102.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <div>
-                <h3 className="text-text2 dark:text-whiteSoft text-2xl font-semibold relative after:absolute after:w-[10px] after:h-[2px] after:rounded-full after:bg-primary after:bottom-2 after:translate-x-1 after:animate-pulse2 inline-block">
-                  Mechanical keyboard
-                </h3>
-                <p className="text-text1 dark:text-text3 text-lg font-medium">
-                  When I come into contact with a lot of code, I feel that the
-                  feeling that the laptop keyboard gives is not enough to
-                  satisfy me. So I got to know the mechanical keyboard.
-                  Especially the custom mechanical keyboard.
-                </p>
-              </div>
-              <div className="flex items-center gap-x-2">
-                <TagItem>FL-Esports MK870</TagItem>
-                <TagItem>KTT Kang White</TagItem>
-                <TagItem>Keycap FSA Metal Heart</TagItem>
-              </div>
-            </div>
-            <div className="flex flex-col gap-3">
-              <div>
-                <h3 className="text-text2 dark:text-whiteSoft text-2xl font-semibold relative after:absolute after:w-[10px] after:h-[2px] after:rounded-full after:bg-primary after:bottom-2 after:translate-x-1 after:animate-pulse2 inline-block">
-                  Music
-                </h3>
-                <p className="text-text1 dark:text-text3 text-lg font-medium">
-                  I listen to music in my free time, cycling and coding. The
-                  genre of music that I often listen to is Lofi.
-                </p>
-              </div>
-              <div className="flex items-center gap-x-2 flex-wrap">
-                <TagItem>Lofi</TagItem>
-                <TagItem>Sơn Tùng MTP</TagItem>
-                <TagItem>Mono</TagItem>
-                <TagItem>Low G</TagItem>
-                <TagItem>Vũ.</TagItem>
-                <TagItem>Onionn</TagItem>
-                <TagItem>Madihu</TagItem>
-                <TagItem>Charlie Puth</TagItem>
-              </div>
-            </div>
+            {hobbiesArr.map((hobby, index) => (
+              <HobbiesItem
+                key={index}
+                title={hobby.title}
+                description={hobby.description}>
+                {hobby.tags.map((tag, index) => (
+                  <TagItem key={index} >
+                    {tag.name}
+                  </TagItem>
+                ))}
+              </HobbiesItem>
+            ))}
           </div>
         </div>
       </div>
