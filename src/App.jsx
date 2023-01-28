@@ -5,6 +5,7 @@ import Layout from "./layout/Layout";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Layout></Layout>}>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -36,4 +36,13 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-darkStroke;
   }
+
+  // cắt chuỗi
+  .clip-string-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
 }
