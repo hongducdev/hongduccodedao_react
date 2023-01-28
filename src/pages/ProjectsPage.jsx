@@ -6,7 +6,7 @@ import { fetcher } from "../config/configSWR";
 
 const ProjectsPage = () => {
   const { data, error, isLoading } = useSWR(
-    "https://api.github.com/users/hongduccodedao/repos",
+    "https://api.github.com/users/hongduccodedao/repos?per_page=100",
     fetcher
   );
 
