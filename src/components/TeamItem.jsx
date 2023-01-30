@@ -6,6 +6,7 @@ const TeamItem = ({ info }) => {
     <div className="bg-strock dark:bg-darkStroke p-4 rounded-lg flex items-center lg:max-w-[300px] w-full">
       <div className="flex flex-col items-center gap-3 w-full">
         <img
+          loading="lazy"
           src={info?.img}
           alt=""
           className="rounded-full w-[150px] h-[150px] object-cover"
