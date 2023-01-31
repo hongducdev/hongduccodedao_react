@@ -1,6 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import HeadingPage from "../components/HeadingPage";
 import SocialItem from "../components/SocialItem";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
+
 import {
   FaFacebook,
   FaGithub,
@@ -8,6 +14,7 @@ import {
   FaTwitter,
   FaDiscord,
 } from "react-icons/fa";
+import { Input, TextArea } from "../components/Form";
 
 const socialArr = [
   {
@@ -37,7 +44,41 @@ const socialArr = [
   },
 ];
 
+const schema = yup.object({
+  name: yup.string().required("Please enter your name"),
+  email: yup
+    .string()
+    .required("Please enter your email")
+    .email("Please enter a valid email"),
+  message: yup.string().required("Please enter your message"),
+});
+
 const ContactPage = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const form = useRef();
+
+  const handelSubmitForm = (values) => {
+    emailjs
+      .sendForm(
+        "service_g62hbgo",
+        "template_qmvqx7j",
+        form.current,
+        "IbPRxAUIJC8ys8Ekm"
+      )
+      .then((res) => {
+        toast.success("Send message success");
+      })
+      .catch((err) => {
+        toast.error("Send message error");
+      });
+  };
+
   return (
     <Fragment>
       <div className="bg-lite dark:bg-darkbg min-h-screen lg:py-[100px] pt-[100px] pb-[150px]">
@@ -54,46 +95,50 @@ const ContactPage = () => {
             ))}
           </div>
           <HeadingPage title="Contact me"></HeadingPage>
-          <form action="" className="">
+          <form
+            ref={form}
+            className=""
+            onSubmit={handleSubmit(handelSubmitForm)}>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-lg font-semibold">
+                <label
+                  htmlFor="name"
+                  className="text-lg font-semibold text-text1 dark:text-text3">
                   Name
                 </label>
-                <input
-                  type="text"
+                <Input
+                  control={control}
                   name="name"
-                  id="name"
-                  className="bg-lite dark:bg-darkbg border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
-                />
+                  placeholder="Enter your name"
+                  error={errors.email?.message}></Input>
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-lg font-semibold"> 
+                <label
+                  htmlFor="email"
+                  className="text-lg font-semibold text-text1 dark:text-text3">
                   Email
                 </label>
-                <input
-                  type="email"
+                <Input
+                  control={control}
                   name="email"
-                  id="email"
-                  className="bg-lite dark:bg-darkbg border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
-                />
+                  placeholder="Enter your email"
+                  error={errors.email?.message}></Input>
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-lg font-semibold">
+                <label
+                  htmlFor="message"
+                  className="text-lg font-semibold text-text1 dark:text-text3">
                   Message
                 </label>
-                <textarea
+                <TextArea
+                  control={control}
                   name="message"
-                  id="message"
-                  cols="30"
-                  rows="10"
-                  className="bg-lite dark:bg-darkbg border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
-                ></textarea>
+                  placeholder="Enter your message"
+                  error={errors.message?.message}></TextArea>
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white font-semibold rounded-lg px-4 py-2 hover:bg-blue-600 transition duration-300"
-              >
+                className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300">
                 Send
               </button>
             </div>
