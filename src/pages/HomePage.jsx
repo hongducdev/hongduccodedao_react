@@ -1,6 +1,10 @@
 import React, { Fragment } from "react";
 
 const HomePage = () => {
+
+  // change title
+  document.title = "hongduccodedao";
+
   return (
     <Fragment>
       <div className="bg-lite dark:bg-darkbg h-screen">

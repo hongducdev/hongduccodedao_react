@@ -5,6 +5,10 @@ import ProjectItem from "../components/ProjectItem";
 import { fetcher } from "../config/configSWR";
 
 const ProjectsPage = () => {
+
+  // change title
+  document.title = "My Projects | hongduccodedao";
+
   const { data, error, isLoading } = useSWR(
     "https://api.github.com/users/hongduccodedao/repos?per_page=100",
     fetcher

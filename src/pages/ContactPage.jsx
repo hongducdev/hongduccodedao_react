@@ -54,6 +54,10 @@ const schema = yup.object({
 });
 
 const ContactPage = () => {
+
+  // change title
+  document.title = "Contact me | hongduccodedao";
+
   const {
     control,
     handleSubmit,

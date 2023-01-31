@@ -57,6 +57,10 @@ const hobbiesArr = [
 ];
 
 const AboutPage = () => {
+
+  // change title
+  document.title = "About me | hongduccodedao";
+
   return (
     <Fragment>
       <div className="bg-lite dark:bg-darkbg h-full lg:py-[100px] pt-[100px] pb-[150px]">

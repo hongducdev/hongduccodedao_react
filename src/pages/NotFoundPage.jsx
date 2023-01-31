@@ -1,6 +1,10 @@
 import React from "react";
 
 const NotFoundPage = () => {
+
+  // change title
+  document.title = "Page not found";
+
   return (
     <div className="bg-lite dark:bg-darkbg h-screen w-screen">
       <div className="flex flex-col items-center justify-center h-full text-center">

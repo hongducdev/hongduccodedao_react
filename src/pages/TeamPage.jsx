@@ -42,6 +42,10 @@ const TeamArr = [
 ];
 
 const TeamPage = () => {
+
+  // change title
+  document.title = "My Friend | hongduccodedao";
+
   return (
     <Fragment>
       <div className="bg-lite dark:bg-darkbg min-h-screen lg:py-[100px] pt-[100px] pb-[150px]">
