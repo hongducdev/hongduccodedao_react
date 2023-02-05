@@ -20,11 +20,9 @@ const ProjectsPage = () => {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
           <HeadingPage title="My Projects"></HeadingPage>
           {isLoading ? (
-            <div className="text-center text-2xl font-bold text-gray-500 dark:text-gray-400">
-              Loading...
-            </div>
+            <div className="w-10 h-10 mx-auto border-4 border-t-4 rounded-full border-primary border-t-transparent animate-spin"></div>
           ) : error ? (
-            <div className="text-center text-2xl font-bold text-gray-500 dark:text-gray-400">
+            <div className="text-2xl font-bold text-center text-gray-500 dark:text-gray-400">
               Error
             </div>
           ) : (
