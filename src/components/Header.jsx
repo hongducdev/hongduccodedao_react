@@ -22,6 +22,10 @@ const linkItems = [
     name: "Contact",
     path: "/contact",
   },
+  {
+    name: "Chat GPT",
+    path: "/chat-gpt",
+  }
 ];
 
 const classItem =
@@ -45,10 +49,10 @@ const Header = () => {
 
   return (
     <div>
-      <div className="bg-white dark:bg-darkSecondary p-5 flex items-center justify-between fixed top-0 z-30 w-full">
+      <div className="fixed top-0 z-30 flex items-center justify-between w-full p-5 bg-white dark:bg-darkSecondary">
         <div className="flex items-center gap-x-10">
           <div
-            className="text-2xl text-text1 dark:text-white cursor-pointer block lg:hidden"
+            className="block text-2xl cursor-pointer text-text1 dark:text-white lg:hidden"
             onClick={handleOpenMenu}>
             <HiOutlineMenuAlt1 />
           </div>
@@ -72,7 +76,7 @@ const Header = () => {
           </ul>
         </div>
         <div
-          className="cursor-pointer select-none w-8 h-8 rounded-full bg-icon-color flex items-center justify-center bg-opacity-0 hover:bg-opacity-50 hover:duration-300 hover:ease-in-out"
+          className="flex items-center justify-center w-8 h-8 bg-opacity-0 rounded-full cursor-pointer select-none bg-icon-color hover:bg-opacity-50 hover:duration-300 hover:ease-in-out"
           onClick={handleClickDarkMode}>
           {darkMode === true ? (
             <MdWbSunny className="text-xl text-whiteSoft" />
@@ -86,7 +90,7 @@ const Header = () => {
           showMenu === true ? "w-[60vw]" : "hidden"
         }`}>
         <div
-          className="cursor-pointer select-none w-8 h-8 rounded-full bg-icon-color flex items-center justify-center bg-opacity-0 hover:bg-opacity-50 hover:duration-300 hover:ease-in-out text-3xl absolute top-5 left-5"
+          className="absolute flex items-center justify-center w-8 h-8 text-3xl bg-opacity-0 rounded-full cursor-pointer select-none bg-icon-color hover:bg-opacity-50 hover:duration-300 hover:ease-in-out top-5 left-5"
           onClick={handleCloseMenu}>
           <IoCloseSharp className="dark:text-whiteSoft text-text1" />
         </div>
