@@ -77,7 +77,7 @@ const ChatGPTPage = () => {
                 className="text-white bg-primary px-5 py-3 rounded-xl"
                 onClick={() => handleSend()}
                 // ấn enter để gửi
-                onKeyDown={(e) => {
+                onKeyPress={(e) => {
                   if (e.key === "Enter") {
                     handleSend();
                   }
