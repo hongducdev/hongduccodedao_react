@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Typewriter from "typewriter-effect";
 
@@ -47,7 +47,7 @@ const ChatGPTPage = () => {
           {
             <div className="w-full flex justify-end mb-10">
               {prompt && (
-                <div className="text-white p-3 bg-darkStroke rounded-md inline-block">
+                <div className="dark:text-white text-text2 p-3 dark:bg-darkStroke bg-strock rounded-md inline-block">
                   <Typewriter
                     options={{
                       strings: prompt,
@@ -59,7 +59,7 @@ const ChatGPTPage = () => {
             </div>
           }
           {chat && (
-            <div className="text-white p-3 bg-darkStroke rounded-md inline-block">
+            <div className="dark:text-white text-text2 p-3 dark:bg-darkStroke bg-strock rounded-md inline-block">
               <Typewriter
                 options={{
                   strings: chat.text,
@@ -71,7 +71,7 @@ const ChatGPTPage = () => {
           <div className="fixed bottom-[100px] w-full flex items-center gap-3">
             <input
               type="text"
-              className="border border-strock bg-transparent outline-none text-white max-w-[750px] w-full px-5 py-3 rounded-[50px]"
+              className="border dark:border-strock border-darkStroke bg-transparent outline-none dark:text-white max-w-[750px] w-full px-5 py-3 rounded-[50px] caret-text2 dark:caret-white text-text1"
               onChange={(e) => {
                 setInputValue(e.target.value);
               }}
