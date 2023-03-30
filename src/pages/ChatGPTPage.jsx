@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Typewriter from "typewriter-effect";
 
@@ -20,6 +20,7 @@ const ChatGPTPage = () => {
       )
       .then((res) => {
         if (res.data) {
+          console.log(res.data);
           setChat(res.data);
           setLoading(false);
         }
@@ -29,6 +30,14 @@ const ChatGPTPage = () => {
   const handleSend = () => {
     setPrompt(inputValue);
     setInputValue("");
+  };
+
+  // ấn enter để gửi
+  const onPressEnter = (e) => {
+    if (e.keyCode === 13) {
+      console.log("enter");
+      handleSend();
+    }
   };
 
   return (
@@ -67,6 +76,7 @@ const ChatGPTPage = () => {
                 setInputValue(e.target.value);
               }}
               value={inputValue}
+              onKeyUp={(e) => onPressEnter(e)}
             />
             {loading ? (
               <button className="bg-primary px-5 py-3 rounded-xl" disabled>
@@ -76,12 +86,6 @@ const ChatGPTPage = () => {
               <button
                 className="text-white bg-primary px-5 py-3 rounded-xl"
                 onClick={() => handleSend()}
-                // ấn enter để gửi
-                onKeyPress={(e) => {
-                  if (e.key === "Enter") {
-                    handleSend();
-                  }
-                }}
               >
                 Gửi
               </button>
