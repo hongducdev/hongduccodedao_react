@@ -46,3 +46,51 @@
     -webkit-box-orient: vertical;
   }
 }
+
+// remove reset css from tailwind
+.overwrite-css h1 {
+  font-size: 2rem;
+}
+
+.overwrite-css h2 {
+  font-size: 1.5rem;
+}
+
+.overwrite-css h3 {
+  font-size: 1.25rem;
+}
+
+.overwrite-css h4 {
+  font-size: 1rem;
+}
+
+.overwrite-css h5 {
+  font-size: 0.875rem;
+}
+
+.overwrite-css h6 {
+  font-size: 0.75rem;
+}
+
+.overwrite-css p {
+  font-size: 1rem;
+}
+
+.overwrite-css ul {
+  list-style: disc;
+  padding-left: 40px;
+}
+
+.overwrite-css ol {
+  list-style: decimal;
+  padding-left: 40px;
+}
+
+.overwrite-css li {
+  font-size: 1rem;
+}
+
+.overwrite-css a {
+  @apply text-primary;
+  text-decoration: underline;
+}

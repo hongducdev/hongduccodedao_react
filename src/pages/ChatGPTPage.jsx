@@ -3,6 +3,9 @@ import axios from "axios";
 import Typewriter from "typewriter-effect";
 
 const ChatGPTPage = () => {
+  // change title
+  document.title = "Chat GPT | hongduccodedao";
+
   const [chat, setChat] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [inputValue, setInputValue] = useState("");

@@ -10,6 +10,9 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const TeamPage = lazy(() => import("./pages/TeamPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ChatGPTPage = lazy(() => import("./pages/ChatGPTPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const PostPage = lazy(() => import("./pages/PostPage"));
+const CreatePostPage = lazy(() => import("./pages/CreatePostPage"));
 
 const App = () => {
   return (
@@ -23,6 +26,9 @@ const App = () => {
             <Route path="/team" element={<TeamPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/chat-gpt" element={<ChatGPTPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/create" element={<CreatePostPage />} />
+            <Route path="/blog/:blogSlug" element={<PostPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

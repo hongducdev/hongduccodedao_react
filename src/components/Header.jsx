@@ -25,6 +25,10 @@ const linkItems = [
   {
     name: "Chat GPT",
     path: "/chat-gpt",
+  },
+  {
+    name: "Blog",
+    path: "/blog",
   }
 ];
 
