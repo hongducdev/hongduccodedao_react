@@ -20,7 +20,6 @@ const schema = yup.object({
 });
 
 const CreatePostPage = () => {
-
   const {
     control,
     handleSubmit,
@@ -32,6 +31,28 @@ const CreatePostPage = () => {
   });
 
   const [content, setContent] = useState("");
+
+  const modules = {
+    toolbar: [
+      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["blockquote", "code-block"],
+
+      [{ header: 1 }, { header: 2 }], // custom button values
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ script: "sub" }, { script: "super" }], // superscript/subscript
+      [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+      [{ direction: "rtl" }], // text direction
+
+      [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+      [{ font: [] }],
+      [{ align: [] }],
+
+      ["clean"],
+    ],
+  };
 
   const handleCreatePost = (data) => {
     console.log(data);
@@ -68,7 +89,7 @@ const CreatePostPage = () => {
 
   return (
     <Fragment>
-      <div className="bg-lite dark:bg-darkbg h-screen lg:py-[100px] pt-[100px] pb-[150px]">
+      <div className="bg-lite dark:bg-darkbg min-h-screen lg:py-[100px] pt-[100px] pb-[150px]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
           <HeadingPage title="Create my post"></HeadingPage>
           <form className="" onSubmit={handleSubmit(handleCreatePost)}>
@@ -109,9 +130,10 @@ const CreatePostPage = () => {
                   Content
                 </label>
                 <ReactQuill
+                  theme="snow"
                   value={content}
                   onChange={setContent}
-                  theme="snow"
+                  modules={modules}
                   className="border border-gray-300 rounded-lg text-text1 dark:text-white"
                 />
               </div>

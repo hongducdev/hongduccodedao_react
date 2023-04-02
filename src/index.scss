@@ -92,5 +92,14 @@
 
 .overwrite-css a {
   @apply text-primary;
+  text-decoration: none;
+}
+
+.overwrite-css a:hover {
+  @apply text-primary;
   text-decoration: underline;
+}
+
+.overwrite-css pre {
+  @apply dark:bg-darkStroke p-2 my-2 rounded-lg
 }

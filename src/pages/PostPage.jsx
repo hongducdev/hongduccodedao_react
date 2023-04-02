@@ -18,6 +18,7 @@ const PostPage = () => {
       )
       .then((res) => {
         if (res.status === 200) {
+          console.log(res.data);
           setPost(res.data);
           setLoading(false);
         } else {
@@ -36,23 +37,26 @@ const PostPage = () => {
             </div>
           ) : (
             <>
-              <h1 className="text-white text-5xl font-bold">
-                {post[0] && post[0].title}
-              </h1>
-              <p className="text-text3 text-2xl font-medium">
-                {post[0] && post[0].description}
-              </p>
-              <div className="mt-5">
-                <span className="text-white">
-                  Updated at:{" "}
-                  {moment(post[0] && post[0].updatedAt).format("DD/MM/YYYY")} (
-                  {`${moment(post[0] && post[0].updatedAt).fromNow()}`})
-                </span>
-              </div>
-              <div className="w-full h-[3px] bg-darkStroke rounded-full my-2"></div>
-              <div className="mt-5 text-whiteSoft overwrite-css">
-                {post[0] && parse(post[0].content)}
-              </div>
+              {post && (
+                <>
+                  <h1 className="text-white text-5xl font-bold">
+                    {post.title}
+                  </h1>
+                  <p className="text-text3 text-2xl font-medium">
+                    {post.description}
+                  </p>
+                  <div className="mt-5">
+                    <span className="text-white">
+                      Updated at: {moment(post.updatedAt).format("DD/MM/YYYY")}{" "}
+                      ({`${moment(post.updatedAt).fromNow()}`})
+                    </span>
+                  </div>
+                  <div className="w-full h-[3px] bg-darkStroke rounded-full my-2"></div>
+                  <div className="mt-5 text-whiteSoft overwrite-css">
+                    {parse(post?.content || "")}
+                  </div>
+                </>
+              )}
             </>
           )}
         </div>
