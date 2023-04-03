@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import moment from "moment";
-import parse from "html-react-parser";
+import ReactMarkdown from "react-markdown";
+import "github-markdown-css/github-markdown.css";
 
 const PostPage = () => {
   const { blogSlug } = useParams();
@@ -27,9 +28,10 @@ const PostPage = () => {
       });
   }, [blogSlug]);
 
+
   return (
     <Fragment>
-      <div className="bg-lite dark:bg-darkbg h-screen lg:py-[100px] pt-[100px] pb-[150px]">
+      <div className="bg-lite dark:bg-darkbg min-h-screen lg:py-[100px] pt-[100px] pb-[150px]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
           {loading ? (
             <div className="w-full h-[70vh] flex items-center justify-center">
@@ -52,8 +54,10 @@ const PostPage = () => {
                     </span>
                   </div>
                   <div className="w-full h-[3px] bg-darkStroke rounded-full my-2"></div>
-                  <div className="mt-5 text-whiteSoft overwrite-css">
-                    {parse(post?.content || "")}
+                  <div className="mt-5 text-whiteSoft">
+                    <div className="markdown-body">
+                      <ReactMarkdown children={post.content} />
+                    </div>
                   </div>
                 </>
               )}

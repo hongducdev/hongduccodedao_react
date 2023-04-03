@@ -9,10 +9,11 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-
 import { Input, TextArea } from "../components/Form";
+import MdEditor from "react-markdown-editor-lite";
+import "react-markdown-editor-lite/lib/index.css";
+import ReactMarkdown from "react-markdown";
+
 
 const schema = yup.object({
   title: yup.string().required("Please enter your title"),
@@ -30,34 +31,17 @@ const CreatePostPage = () => {
     mode: "onSubmit",
   });
 
-  const [content, setContent] = useState("");
+  const [markdown, setMarkdown] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const modules = {
-    toolbar: [
-      ["bold", "italic", "underline", "strike"], // toggled buttons
-      ["blockquote", "code-block"],
+  function handleEditorChange({ html, text }) {
+    setMarkdown(text);
+  }
 
-      [{ header: 1 }, { header: 2 }], // custom button values
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ script: "sub" }, { script: "super" }], // superscript/subscript
-      [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-      [{ direction: "rtl" }], // text direction
-
-      [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-      [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-      [{ font: [] }],
-      [{ align: [] }],
-
-      ["clean"],
-    ],
-  };
+  const renderHTML = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
 
   const handleCreatePost = (data) => {
-    console.log(data);
-    console.log(content);
-
+    setLoading(true);
     const slugByTitle = slugify(data.title, {
       replacement: "_",
       remove: undefined, // remove characters that match regex, defaults to `undefined`
@@ -73,13 +57,14 @@ const CreatePostPage = () => {
         {
           title: data.title,
           description: data.description,
-          content: content,
+          content: markdown,
           slug: slugByTitle,
         }
       )
       .then((res) => {
         if (res.status === 201) {
           toast.success("Create post successfully");
+          setLoading(false);
           reset();
         } else {
           toast.error("Create post failed");
@@ -129,20 +114,24 @@ const CreatePostPage = () => {
                 >
                   Content
                 </label>
-                <ReactQuill
-                  theme="snow"
-                  value={content}
-                  onChange={setContent}
-                  modules={modules}
-                  className="border border-gray-300 rounded-lg text-text1 dark:text-white"
+                <MdEditor
+                  value={markdown}
+                  onChange={handleEditorChange}
+                  renderHTML={renderHTML}
                 />
               </div>
-              <button
-                type="submit"
-                className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300"
-              >
-                Send
-              </button>
+              {loading ? (
+                <button className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300 opacity-60" disabled>
+                  <div className="w-5 h-5 mx-auto border-4 border-t-4 rounded-full border-white border-t-transparent animate-spin"></div>
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300"
+                >
+                  Send
+                </button>
+              )}
             </div>
           </form>
         </div>
