@@ -3,7 +3,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
-import "github-markdown-css/github-markdown.css";
+// import file index.scss
+import "../index.scss";
 
 const PostPage = () => {
   const { blogSlug } = useParams();
@@ -19,7 +20,6 @@ const PostPage = () => {
       )
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
           setPost(res.data);
           setLoading(false);
         } else {
@@ -41,14 +41,14 @@ const PostPage = () => {
             <>
               {post && (
                 <>
-                  <h1 className="text-white text-5xl font-bold">
+                  <h1 className="dark:text-white text-text1 text-5xl font-bold">
                     {post.title}
                   </h1>
                   <p className="text-text3 text-2xl font-medium">
                     {post.description}
                   </p>
                   <div className="mt-5">
-                    <span className="text-white">
+                    <span className="dark:text-white text-text3">
                       Updated at: {moment(post.updatedAt).format("DD/MM/YYYY")}{" "}
                       ({`${moment(post.updatedAt).fromNow()}`})
                     </span>
