@@ -4,6 +4,7 @@ import HobbiesItem from "../components/HobbiesItem";
 import HoverLinkText from "../components/HoverLinkText";
 import MilestoneItem from "../components/MilestoneItem";
 import TagItem from "../components/TagItem";
+import { motion } from "framer-motion";
 
 const hobbiesArr = [
   {
@@ -57,7 +58,6 @@ const hobbiesArr = [
 ];
 
 const AboutPage = () => {
-
   // change title
   document.title = "About me | hongduccodedao";
 
@@ -65,65 +65,82 @@ const AboutPage = () => {
     <Fragment>
       <div className="bg-lite dark:bg-darkbg h-full lg:py-[100px] pt-[100px] pb-[150px]">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
-          <HeadingPage title="About Me"></HeadingPage>
-          <p className="text-text1 dark:text-text3 text-lg font-medium">
-            Hi, my name is hongduccodedao. Full name is Nguyen Hong Duc. I am a
-            3rd year student majoring in Software Engineering at Thai Nguyen
-            University of Information and Communication Technology (
-            <HoverLinkText link="https://ictu.edu.vn/">ICTU</HoverLinkText>). I
-            am looking to become a{" "}
-            <HoverLinkText link="https://roadmap.sh/frontend">
-              Front-End developer
-            </HoverLinkText>
-            . Owner and Dev PinkBot._(Discord bot). Far beyond the{" "}
-            <HoverLinkText to="https://landing.jobs/blog/fullstack-developer-roadmap/">
-              Full-stack developer
-            </HoverLinkText>
-            .
-          </p>
-          <div className="mt-10"></div>
-          <HeadingPage title="Milestones" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <MilestoneItem year="2020">
-              Become a student at ICTU and start learning programming. Be
-              exposed to C and C++ languages.
-            </MilestoneItem>
-            <MilestoneItem year="2021">
-              Learn HTML, CSS, JavaScript. Started using Discord and developed a
-              Discord bot called PinkBot._.
-            </MilestoneItem>
-            <MilestoneItem year="2022">
-              Learn TailwindCSS, ReactJS, ExpressJS, MongoDB. Complete the{" "}
-              <HoverLinkText link="https://github.com/Let-s-Food">
-                Let's Food
-              </HoverLinkText>{" "}
-              project with{" "}
-              <HoverLinkText link="https://github.com/dd4tj">
-                DDatj
-              </HoverLinkText>{" "}
-              and{" "}
-              <HoverLinkText link="https://github.com/quanghaik2">
-                quanghaik2
+          <motion.div
+            initial={{ x: -200 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <HeadingPage title="About Me"></HeadingPage>
+            <p className="text-text1 dark:text-text3 text-lg font-medium">
+              Hi, my name is hongduccodedao. Full name is Nguyen Hong Duc. I am
+              a 3rd year student majoring in Software Engineering at Thai Nguyen
+              University of Information and Communication Technology (
+              <HoverLinkText link="https://ictu.edu.vn/">ICTU</HoverLinkText>).
+              I am looking to become a{" "}
+              <HoverLinkText link="https://roadmap.sh/frontend">
+                Front-End developer
+              </HoverLinkText>
+              . Owner and Dev PinkBot._(Discord bot). Far beyond the{" "}
+              <HoverLinkText to="https://landing.jobs/blog/fullstack-developer-roadmap/">
+                Full-stack developer
               </HoverLinkText>
               .
-            </MilestoneItem>
-          </div>
+            </p>
+          </motion.div>
           <div className="mt-10"></div>
-          <HeadingPage title="Hobbies" />
-          <div className="flex flex-col gap-5">
-            {hobbiesArr.map((hobby, index) => (
-              <HobbiesItem
-                key={index}
-                title={hobby.title}
-                description={hobby.description}>
-                {hobby.tags.map((tag, index) => (
-                  <TagItem key={index} >
-                    {tag.name}
-                  </TagItem>
-                ))}
-              </HobbiesItem>
-            ))}
-          </div>
+          <motion.div
+            initial={{ x: -200 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <HeadingPage title="Milestones" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <MilestoneItem year="2020">
+                Become a student at ICTU and start learning programming. Be
+                exposed to C and C++ languages.
+              </MilestoneItem>
+              <MilestoneItem year="2021">
+                Learn HTML, CSS, JavaScript. Started using Discord and developed
+                a Discord bot called PinkBot._.
+              </MilestoneItem>
+              <MilestoneItem year="2022">
+                Learn TailwindCSS, ReactJS, ExpressJS, MongoDB. Complete the{" "}
+                <HoverLinkText link="https://github.com/Let-s-Food">
+                  Let's Food
+                </HoverLinkText>{" "}
+                project with{" "}
+                <HoverLinkText link="https://github.com/dd4tj">
+                  DDatj
+                </HoverLinkText>{" "}
+                and{" "}
+                <HoverLinkText link="https://github.com/quanghaik2">
+                  quanghaik2
+                </HoverLinkText>
+                .
+              </MilestoneItem>
+            </div>
+          </motion.div>
+          <div className="mt-10"></div>
+          <motion.div
+            initial={{ x: -200 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <HeadingPage title="Hobbies" />
+            <div className="flex flex-col gap-5">
+              {hobbiesArr.map((hobby, index) => (
+                <HobbiesItem
+                  key={index}
+                  title={hobby.title}
+                  description={hobby.description}
+                >
+                  {hobby.tags.map((tag, index) => (
+                    <TagItem key={index}>{tag.name}</TagItem>
+                  ))}
+                </HobbiesItem>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </Fragment>

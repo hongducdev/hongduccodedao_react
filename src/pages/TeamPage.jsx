@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import HeadingPage from "../components/HeadingPage";
 import TeamItem from "../components/TeamItem";
+import { motion } from "framer-motion";
 
 const TeamArr = [
   {
@@ -53,7 +54,14 @@ const TeamPage = () => {
           <HeadingPage title="My Friend"></HeadingPage>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {TeamArr.map((item, index) => (
-              <TeamItem key={index} info={item} />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <TeamItem info={item} />
+              </motion.div>
             ))}
           </div>
         </div>

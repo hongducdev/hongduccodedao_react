@@ -3,6 +3,7 @@ import HeadingPage from "../components/HeadingPage";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { motion } from "framer-motion";
 
 const BlogPage = () => {
   // change title
@@ -36,24 +37,31 @@ const BlogPage = () => {
             ) : (
               <>
                 {blogs.map((item, index) => (
-                  <Link key={item._id} to={item.slug}>
-                    <div className="bg-strock dark:bg-darkStroke rounded-lg p-5">
-                      <div className="flex flex-col gap-2">
-                        <div className="flex items-center justify-between">
-                          <h1 className="text-2xl font-semibold text-text1 dark:text-whiteSoft">
-                            {item.title}
-                          </h1>
-                          <span className="text-lg font-medium text-text1 dark:text-text3">
-                            {moment(item.updatedAt).format("DD/MM/YYYY")} (
-                            {`${moment(item.updatedAt).fromNow()}`})
-                          </span>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <Link to={item.slug}>
+                      <div className="bg-strock dark:bg-darkStroke rounded-lg p-5">
+                        <div className="flex flex-col gap-2">
+                          <div className="flex items-center justify-between">
+                            <h1 className="text-2xl font-semibold text-text1 dark:text-whiteSoft">
+                              {item.title}
+                            </h1>
+                            <span className="text-lg font-medium text-text1 dark:text-text3">
+                              {moment(item.updatedAt).format("DD/MM/YYYY")} (
+                              {`${moment(item.updatedAt).fromNow()}`})
+                            </span>
+                          </div>
+                          <p className="text-lg font-medium text-text1 dark:text-text3">
+                            {item.description}
+                          </p>
                         </div>
-                        <p className="text-lg font-medium text-text1 dark:text-text3">
-                          {item.description}
-                        </p>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </motion.div>
                 ))}
               </>
             )}

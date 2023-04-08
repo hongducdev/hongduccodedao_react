@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const ChatGPTPage = () => {
   // change title
@@ -50,14 +51,18 @@ const ChatGPTPage = () => {
           {
             <div className="w-full flex justify-end mb-10">
               {prompt && (
-                <div className="dark:text-white text-text2 p-3 dark:bg-darkStroke bg-strock rounded-md inline-block">
+                <motion.div className="dark:text-white text-text2 p-3 dark:bg-darkStroke bg-strock rounded-md inline-block"
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
                   <Typewriter
                     options={{
                       strings: prompt,
                       autoStart: true,
                     }}
                   />
-                </div>
+                </motion.div>
               )}
             </div>
           }

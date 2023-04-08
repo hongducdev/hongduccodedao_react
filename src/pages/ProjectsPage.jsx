@@ -3,6 +3,7 @@ import useSWR from "swr";
 import HeadingPage from "../components/HeadingPage";
 import ProjectItem from "../components/ProjectItem";
 import { fetcher } from "../config/configSWR";
+import { motion } from "framer-motion";
 
 const ProjectsPage = () => {
 
@@ -29,7 +30,14 @@ const ProjectsPage = () => {
             <div className="flex flex-col gap-2 max-h-[70vh] overflow-auto">
               {data.length > 0 &&
                 data.map((project) => (
-                  <ProjectItem key={project.id} project={project}></ProjectItem>
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <ProjectItem project={project}></ProjectItem>
+                  </motion.div>
                 ))}
             </div>
           )}

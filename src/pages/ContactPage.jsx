@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 import {
   FaFacebook,
@@ -54,7 +55,6 @@ const schema = yup.object({
 });
 
 const ContactPage = () => {
-
   // change title
   document.title = "Contact me | hongduccodedao";
 
@@ -90,61 +90,97 @@ const ContactPage = () => {
           <HeadingPage title="My social network"></HeadingPage>
           <div className="flex gap-4 items-center justify-center flex-wrap my-5">
             {socialArr.map((item, index) => (
-              <SocialItem
-                icon={item.icon}
-                text={item.text}
-                link={item.link}
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
                 key={index}
-              />
+              >
+                <SocialItem
+                  icon={item.icon}
+                  text={item.text}
+                  link={item.link}
+                />
+              </motion.div>
             ))}
           </div>
           <HeadingPage title="Contact me"></HeadingPage>
           <form
             ref={form}
             className=""
-            onSubmit={handleSubmit(handelSubmitForm)}>
+            onSubmit={handleSubmit(handelSubmitForm)}
+          >
             <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
+              <motion.div
+                initial={{ x: -200 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col gap-2"
+              >
                 <label
                   htmlFor="name"
-                  className="text-lg font-semibold text-text1 dark:text-text3">
+                  className="text-lg font-semibold text-text1 dark:text-text3"
+                >
                   Name
                 </label>
                 <Input
                   control={control}
                   name="name"
                   placeholder="Enter your name"
-                  error={errors.email?.message}></Input>
-              </div>
-              <div className="flex flex-col gap-2">
+                  error={errors.email?.message}
+                ></Input>
+              </motion.div>
+              <motion.div
+                initial={{ x: -200 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col gap-2"
+              >
                 <label
                   htmlFor="email"
-                  className="text-lg font-semibold text-text1 dark:text-text3">
+                  className="text-lg font-semibold text-text1 dark:text-text3"
+                >
                   Email
                 </label>
                 <Input
                   control={control}
                   name="email"
                   placeholder="Enter your email"
-                  error={errors.email?.message}></Input>
-              </div>
-              <div className="flex flex-col gap-2">
+                  error={errors.email?.message}
+                ></Input>
+              </motion.div>
+              <motion.div
+                initial={{ x: -200 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex flex-col gap-2"
+              >
                 <label
                   htmlFor="message"
-                  className="text-lg font-semibold text-text1 dark:text-text3">
+                  className="text-lg font-semibold text-text1 dark:text-text3"
+                >
                   Message
                 </label>
                 <TextArea
                   control={control}
                   name="message"
                   placeholder="Enter your message"
-                  error={errors.message?.message}></TextArea>
-              </div>
-              <button
-                type="submit"
-                className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300">
-                Send
-              </button>
+                  error={errors.message?.message}
+                ></TextArea>
+              </motion.div>
+              <motion.div
+                initial={{ x: -200 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1 }}
+                className="flex flex-col gap-2"
+              >
+                <button
+                  type="submit"
+                  className="bg-primary text-white font-semibold rounded-lg px-4 py-2 transition duration-300"
+                >
+                  Send
+                </button>
+              </motion.div>
             </div>
           </form>
         </div>
