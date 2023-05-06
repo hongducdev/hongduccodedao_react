@@ -61,18 +61,18 @@ const ContactPage = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<ContactFormData>({
     resolver: yupResolver(schema),
   });
   const form = useRef<HTMLFormElement>(null);
 
-  interface FieldValues {
+  interface ContactFormData {
     name: string;
     email: string;
     message: string;
   }
 
-  const handelSubmitForm: SubmitHandler<FieldValues> = (values) => {
+  const handelSubmitForm: SubmitHandler<ContactFormData> = (values) => {
     emailjs
       .sendForm(
         "service_g62hbgo",
