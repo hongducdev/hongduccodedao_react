@@ -2,26 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-moz-selection {
+  /* Code for Firefox */
+  @apply text-whiteSoft bg-primary;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::selection {
+  @apply text-whiteSoft bg-primary;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-lite dark:bg-darkbg;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-darkStroke rounded-xl;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-darkStroke;
+}
+
+/* cắt chuỗi */
+.clip-string-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
