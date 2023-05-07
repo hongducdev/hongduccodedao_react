@@ -2,12 +2,11 @@
 import HeadingPage from "@/components/common/HeadingPage";
 import Head from "next/head";
 import React from "react";
-import useSWR from "swr";
-import { fetcher } from "../configs/configSWR";
 import ProjectItem from "@/components/common/ProjectItem";
 import Footer from "@/components/common/Footer";
 import Loading from "@/components/common/Loading";
-
+import axios from "axios";
+import { debounce } from "lodash";
 interface Project {
   id: number;
   html_url: string;
@@ -26,11 +25,39 @@ interface Project {
 }
 
 const projects = () => {
-  // fetch data from https://api.github.com/users/hongduccodedao/repos?per_page=100
-  const { data, error, isLoading } = useSWR<Project[]>(
-    "https://api.github.com/users/hongduccodedao/repos?per_page=100",
-    fetcher
-  );
+  const [data, setData] = React.useState<Project[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  const [inputSearch, setInputSearch] = React.useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputSearch(e.target.value);
+  };
+
+  const searchDebounce = debounce(handleChange, 500);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://api.github.com/users/hongduccodedao/repos?per_page=100"
+        );
+        setData(res.data);
+        setIsLoading(false);
+      } catch (error) {
+        setError(true);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  React.useEffect(() => {
+    const filterData = data.filter((project) =>
+      project.name.toLowerCase().includes(inputSearch.toLowerCase())
+    );
+    setData(filterData);
+  }, [inputSearch]);
 
   return (
     <>
@@ -41,6 +68,13 @@ const projects = () => {
         <div className="bg-lite dark:bg-darkbg h-screen lg:py-[100px] py-[100px]">
           <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
             <HeadingPage title="My Projects"></HeadingPage>
+            <input
+              type="text"
+              className="border dark:border-strock border-darkStroke bg-transparent outline-none dark:text-white w-full px-5 py-3 rounded-[50px] caret-text2 dark:caret-white text-text1 my-5"
+              placeholder="Enter your keyword..."
+              value={inputSearch}
+              onChange={handleChange}
+            />
             {isLoading ? (
               <Loading />
             ) : error ? (
