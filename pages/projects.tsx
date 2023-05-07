@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import HeadingPage from "@/components/common/HeadingPage";
 import Head from "next/head";
-import React from "react";
+import React, { useCallback } from "react";
 import ProjectItem from "@/components/common/ProjectItem";
 import Footer from "@/components/common/Footer";
 import Loading from "@/components/common/Loading";
@@ -30,11 +30,14 @@ const projects = () => {
   const [error, setError] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputSearch(e.target.value);
-  };
+  const handleChange = useCallback(
+    debounce((value: string) => {
+      setInputSearch(value);
+    }, 500),
+    []
+  );
 
-  const searchDebounce = debounce(handleChange, 500);
+  const dataRef = React.useRef<Project[]>([]);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +45,8 @@ const projects = () => {
         const res = await axios.get(
           "https://api.github.com/users/hongduccodedao/repos?per_page=100"
         );
-        setData(res.data);
+        dataRef.current = res.data;
+        setData(dataRef.current);
         setIsLoading(false);
       } catch (error) {
         setError(true);
@@ -53,7 +57,7 @@ const projects = () => {
   }, []);
 
   React.useEffect(() => {
-    const filterData = data.filter((project) =>
+    const filterData = dataRef.current.filter((project) =>
       project.name.toLowerCase().includes(inputSearch.toLowerCase())
     );
     setData(filterData);
@@ -73,7 +77,7 @@ const projects = () => {
               className="border dark:border-strock border-darkStroke bg-transparent outline-none dark:text-white w-full px-5 py-3 rounded-[50px] caret-text2 dark:caret-white text-text1 my-5"
               placeholder="Enter your keyword..."
               value={inputSearch}
-              onChange={handleChange}
+              onChange={(e) => handleChange(e.target.value)}
             />
             {isLoading ? (
               <Loading />
