@@ -5,6 +5,7 @@ import axios from "axios";
 import Head from "next/head";
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import { toast } from "react-toastify";
 
 interface Conversation {
   role: string;
@@ -28,25 +29,30 @@ const chatgpt = () => {
     setLoading(true);
     await handleResponse();
     setLoading(false);
-  }
+  };
 
   const handleResponse = async () => {
     const chatHistory = [...conversation, { role: "user", content: value }];
     // rest api
-    const response = await axios.post("/api/chatgpt", {
-      messages: chatHistory,
-    });
+    await axios
+      .post("/api/chatgpt", {
+        messages: chatHistory,
+      })
+      .then(async (res) => {
+        const data = await res.data.data.choices[0].message.content;
 
-    const data = await response.data.data.choices[0].message.content;
-
-    setValue("");
-    setConversation([...chatHistory, { role: "assistant", content: data }]);
+        setValue("");
+        setConversation([...chatHistory, { role: "assistant", content: data }]);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   const handleRefresh = () => {
     setValue("");
     setConversation([]);
-  }
+  };
 
   return (
     <>
