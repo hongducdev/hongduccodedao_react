@@ -94,7 +94,7 @@ const chatgpt = () => {
                     onKeyDown={handleKeyDown}
                   />
                   <button
-                    className="dark:text-white text-text2 bg-primary h-[50px] lg:px-7 px-5 rounded-full"
+                    className="text-white bg-primary h-[50px] lg:px-7 px-5 rounded-full"
                     onClick={handleButtonClick}
                   >
                     <FiSend />
@@ -102,7 +102,7 @@ const chatgpt = () => {
                 </div>
               )}
               <button
-                className="dark:text-white text-text2 bg-primary h-[50px] lg:px-7 px-5 rounded-full flex items-center gap-x-2"
+                className="text-white bg-primary h-[50px] lg:px-7 px-5 rounded-full flex items-center gap-x-2"
                 onClick={handleRefresh}
               >
                 <FiRefreshCw />
