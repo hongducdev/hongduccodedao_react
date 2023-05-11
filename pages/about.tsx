@@ -33,14 +33,14 @@ const hobbiesArr = [
         name: "Keycap FSA Metal Heart",
       },
       {
-        name: "Tester 68"
+        name: "Tester 68",
       },
       {
-        name: "Cherry Hyperglide Black"
+        name: "Cherry Hyperglide Black",
       },
       {
-        name: "Keycap 9009 Retro"
-      }
+        name: "Keycap 9009 Retro",
+      },
     ],
   },
   {
@@ -86,13 +86,24 @@ const about = () => {
                 Hi, my name is hongduccodedao. Full name is Nguyen Hong Duc. I
                 am a 3rd year student majoring in Software Engineering at Thai
                 Nguyen University of Information and Communication Technology (
-                <HoverLinkText link="https://ictu.edu.vn/">ICTU</HoverLinkText>
+                <HoverLinkText
+                  link="https://ictu.edu.vn/"
+                  title="ICTU - University of Information and Communication Technology"
+                >
+                  ICTU
+                </HoverLinkText>
                 ). I am looking to become a{" "}
-                <HoverLinkText link="https://roadmap.sh/frontend">
+                <HoverLinkText
+                  link="https://roadmap.sh/frontend"
+                  title="Front-End Developer"
+                >
                   Front-End developer
                 </HoverLinkText>
                 . Owner and Dev PinkBot._(Discord bot). Far beyond the{" "}
-                <HoverLinkText link="https://landing.jobs/blog/fullstack-developer-roadmap/">
+                <HoverLinkText
+                  link="https://landing.jobs/blog/fullstack-developer-roadmap/"
+                  title="Full-stack Developer"
+                >
                   Full-stack developer
                 </HoverLinkText>
                 .
@@ -112,15 +123,55 @@ const about = () => {
                 </MilestoneItem>
                 <MilestoneItem year="2022">
                   Learn TailwindCSS, ReactJS, ExpressJS, MongoDB. Complete the{" "}
-                  <HoverLinkText link="https://github.com/Let-s-Food">
+                  <HoverLinkText
+                    link="https://github.com/Let-s-Food"
+                    title="Let's Food - Website bán đồ ăn trực tuyến"
+                  >
                     {"Let's Food"}
                   </HoverLinkText>{" "}
                   project with{" "}
-                  <HoverLinkText link="https://github.com/dd4tj">
+                  <HoverLinkText
+                    link="https://github.com/dd4tj"
+                    title="Trần Tiến Đạt"
+                  >
                     DDatj
                   </HoverLinkText>{" "}
                   and{" "}
-                  <HoverLinkText link="https://github.com/quanghaik2">
+                  <HoverLinkText
+                    link="https://github.com/quanghaik2"
+                    title="Chu Quang Hải"
+                  >
+                    quanghaik2
+                  </HoverLinkText>
+                  .
+                </MilestoneItem>
+                <MilestoneItem year="2023">
+                  Learn Mobile app (Java - Android), NextJS. Complete the{" "}
+                  <HoverLinkText
+                    link="https://ban-sach-truc-tuyen.vercel.app/"
+                    title="Ebook.co - Hệ thống bán sách trực tuyến"
+                  >
+                    {"Ebook.co"}
+                  </HoverLinkText>{" "}
+                  project and{" "}
+                  <HoverLinkText
+                    link="https://github.com/hongduccodedao/LearnCodeApp"
+                    title="Learn Code App - Ứng dụng học lập trình trên điện thoại"
+                  >
+                    Learn Code App
+                  </HoverLinkText>{" "}
+                  with{" "}
+                  <HoverLinkText
+                    link="https://github.com/dd4tj"
+                    title="Trần Tiến Đạt"
+                  >
+                    DDatj
+                  </HoverLinkText>{" "}
+                  and{" "}
+                  <HoverLinkText
+                    link="https://github.com/quanghaik2"
+                    title="Chu Quang Hải"
+                  >
                     quanghaik2
                   </HoverLinkText>
                   .
