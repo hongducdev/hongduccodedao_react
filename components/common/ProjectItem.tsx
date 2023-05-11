@@ -30,6 +30,8 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
           <h1 className="">
             <a
               href={project?.html_url}
+              target="_blank"
+              title={project?.name}
               className="font-bold text-2xl md:text-3xl text-text2 dark:text-text4 hover:underline hover:duration-300 hover:ease-in-out"
             >
               {project?.name}

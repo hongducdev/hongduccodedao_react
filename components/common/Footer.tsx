@@ -19,16 +19,19 @@ const powerItems = [
     name: "NextJS",
     path: "https://nextjs.org/",
     icon: <SiNextdotjs />,
+    title: "NextJS",
   },
   {
     name: "Typescript",
     path: "https://www.typescriptlang.org/",
     icon: <SiTypescript />,
+    title: "Typescript",
   },
   {
     name: "TailwindCSS",
     path: "https://tailwindcss.com/",
     icon: <SiTailwindcss />,
+    title: "TailwindCSS",
   },
 ];
 
@@ -37,16 +40,19 @@ const socialItems = [
     name: "Facebook",
     path: "https://www.facebook.com/hongduccodedao/",
     icon: <SiFacebook />,
+    title: "Facebook - Nguyễn Hồng Đức",
   },
   {
     name: "Instagram",
     path: "https://www.instagram.com/pinkduwc._/",
     icon: <SiInstagram />,
+    title: "Instagram - pinkduwc._",
   },
   {
     name: "Github",
     path: "https://github.com/hongduccodedao",
     icon: <SiGithub />,
+    title: "Github - hongduccodedao",
   },
 ];
 
@@ -70,6 +76,7 @@ const Footer = () => {
             href={item.path}
             target="_blank"
             rel="noreferrer"
+            title={item.title}
             className="hover:text-primary hover:duration-300 hover:ease-in-out"
           >
             {item.icon}
@@ -81,6 +88,7 @@ const Footer = () => {
           <a
             key={index}
             href={item.path}
+            title={item.title}
             target="_blank"
             rel="noreferrer"
             className="hover:text-primary hover:duration-300 hover:ease-in-out w-8 h-8 rounded-full bg-icon-color flex items-center justify-center bg-opacity-50"
