@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@hookform/resolvers": "^3.1.0",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.194",
     "@types/node": "18.16.3",
     "@types/react": "18.2.5",
@@ -19,7 +20,10 @@
     "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.4.0",
+    "fs": "^0.0.1-security",
+    "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
+    "markdown-to-jsx": "^7.2.0",
     "moment": "^2.29.4",
     "next": "^13.4.1",
     "openai": "^3.2.1",

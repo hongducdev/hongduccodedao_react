@@ -34,7 +34,7 @@ const linkItems = [
   },
   {
     name: "Blog",
-    path: "/blog",
+    path: "/blogs",
   },
 ];
 
