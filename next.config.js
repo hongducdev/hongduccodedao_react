@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    domains: [
+      "avatars.githubusercontent.com",
+      "halustorage-hn.ss-hn-1.vccloud.vn",
+    ],
   },
   swcMinify: true,
   experimental: {
