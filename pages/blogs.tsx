@@ -39,9 +39,51 @@ const blogs = () => {
     <>
       <Head>
         <title>Blog | hongduccodedao</title>
+        <meta name="title" content="Blog | hongduccodedao"></meta>
+        <meta
+          name="keywords"
+          content="Nguyễn Hồng Đức (hongduccodedao), hongducodedao, Nguyễn Hồng Đức"
+        ></meta>
+        <meta name="author" content="Nguyễn Hồng Đức (hongduccodedao)"></meta>
+        <meta name="geo.region" content="VN"></meta>
+        <meta property="og:locale" content="vi_VN"></meta>
+        <meta name="theme-color" content="#1DC071"></meta>
         <meta
           name="description"
-          content="Blog của hongduccodedao, chia sẻ kiến thức về lập trình, kinh nghiệm làm việc, các thủ thuật hay"
+          content="This is a place where I can share some experiences when I learn programming, especially Front-End programming. Or my experiences with a technology or maybe an autobiography about myself."
+        />
+        <meta
+          name="google-site-verification"
+          content="wO7_mXt_nA0dY_Xw1LH7l2YExnqGbSAx0A-mfo72lVs"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="mkiddxmoh9v84vek04vz472wd41n2f"
+        />
+        <meta name="msvalidate.01" content="719E848983AA37F4AA3A04B3616E1F9F" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hongduccodedao.site/" />
+        <meta property="og:title" content="Blog | hongduccodedao" />
+        <meta
+          property="og:description"
+          content="This is a place where I can share some experiences when I learn programming, especially Front-End programming. Or my experiences with a technology or maybe an autobiography about myself."
+        />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/73995275?v=4"
+        />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://hongduccodedao.site/" />
+        <meta property="twitter:title" content="Blog | hongduccodedao" />
+        <meta
+          property="twitter:description"
+          content="This is a place where I can share some experiences when I learn programming, especially Front-End programming. Or my experiences with a technology or maybe an autobiography about myself."
+        />
+        <meta
+          property="twitter:image"
+          content="https://avatars.githubusercontent.com/u/73995275?v=4"
         />
       </Head>
       <main>

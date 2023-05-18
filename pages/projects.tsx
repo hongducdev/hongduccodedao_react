@@ -67,6 +67,52 @@ const projects = () => {
     <>
       <Head>
         <title>Projects | hongduccodedao</title>
+        <meta name="title" content="Projects | hongduccodedao"></meta>
+        <meta
+          name="keywords"
+          content="Nguyễn Hồng Đức (hongduccodedao), hongducodedao, Nguyễn Hồng Đức"
+        ></meta>
+        <meta name="author" content="Nguyễn Hồng Đức (hongduccodedao)"></meta>
+        <meta name="geo.region" content="VN"></meta>
+        <meta property="og:locale" content="vi_VN"></meta>
+        <meta name="theme-color" content="#1DC071"></meta>
+        <meta
+          name="description"
+          content="These are all projects that have been accumulated through the process of studying and working in groups with friends. All are publicly available on the open source Github: hongduccodedao."
+        />
+        <meta
+          name="google-site-verification"
+          content="wO7_mXt_nA0dY_Xw1LH7l2YExnqGbSAx0A-mfo72lVs"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="mkiddxmoh9v84vek04vz472wd41n2f"
+        />
+        <meta name="msvalidate.01" content="719E848983AA37F4AA3A04B3616E1F9F" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hongduccodedao.site/" />
+        <meta property="og:title" content="Projects | hongduccodedao" />
+        <meta
+          property="og:description"
+          content="These are all projects that have been accumulated through the process of studying and working in groups with friends. All are publicly available on the open source Github: hongduccodedao."
+        />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/73995275?v=4"
+        />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://hongduccodedao.site/" />
+        <meta property="twitter:title" content="Projects | hongduccodedao" />
+        <meta
+          property="twitter:description"
+          content="These are all projects that have been accumulated through the process of studying and working in groups with friends. All are publicly available on the open source Github: hongduccodedao."
+        />
+        <meta
+          property="twitter:image"
+          content="https://avatars.githubusercontent.com/u/73995275?v=4"
+        />
       </Head>
       <main>
         <div className="bg-lite dark:bg-darkbg h-screen lg:py-[100px] py-[100px]">
