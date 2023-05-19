@@ -33,8 +33,6 @@ const blogs = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(posts);
-
   return (
     <>
       <Head>
