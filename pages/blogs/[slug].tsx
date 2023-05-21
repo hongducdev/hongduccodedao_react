@@ -40,7 +40,7 @@ const Post = () => {
   return (
     <>
       <Head>
-        {post ? (
+        {post && post.data ? (
           <BlogSEO
             title={post.data.title}
             description={post.data.subtitle}
