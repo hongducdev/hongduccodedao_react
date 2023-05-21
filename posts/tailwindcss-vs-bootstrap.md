@@ -2,7 +2,7 @@
 title: "Tailwind CSS vs Bootstrap. Đâu mới là lựa chọn tốt nhất?"
 subtitle: "Tailwind CSS vs Bootstrap. Đâu mới là lựa chọn tốt nhất?"
 date: "21-05-2023"
-image: '/images/posts/img-tailwind-bootstrap.jpg'
+image: '/images/posts/img-tailwind-boostrap.jpg'
 slug: 'tailwindcss-vs-bootstrap'
 tags: ['tailwindcss', 'bootstrap', 'css']
 ---
