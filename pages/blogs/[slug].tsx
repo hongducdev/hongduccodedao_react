@@ -40,21 +40,13 @@ const Post = () => {
   return (
     <>
       <Head>
-        {post && post.data ? (
+        {post && post.data && (
           <BlogSEO
             title={post.data.title}
             description={post.data.subtitle}
             date={post.data.date}
             url={post.data.slug}
             image={post.data.image}
-          />
-        ) : (
-          <BlogSEO
-            title="Post not found"
-            description="Post not found"
-            date="Post not found"
-            url="Post not found"
-            image="Post not found"
           />
         )}
       </Head>
