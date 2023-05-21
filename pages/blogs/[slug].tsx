@@ -73,7 +73,7 @@ const Post = () => {
         <meta
           property="twitter:url"
           content={`https://hongduccodedao.site/${slug}`}
-        />
+        />sd
         <meta property="twitter:title" content={post?.data.title} />
         <meta property="twitter:description" content={post?.data.subtitle} />
         <meta property="twitter:image" content={post?.data.image} />
