@@ -40,7 +40,7 @@ const Post = () => {
     <>
       <Head>
         <title>{post?.data.title}</title>
-        <meta name="title" content="{post?.data.title}"></meta>
+        <meta name="title" content={post?.data.title}></meta>
         <meta
           name="keywords"
           content="Nguyễn Hồng Đức (hongduccodedao), hongducodedao, Nguyễn Hồng Đức"
@@ -61,14 +61,20 @@ const Post = () => {
         <meta name="msvalidate.01" content="719E848983AA37F4AA3A04B3616E1F9F" />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hongduccodedao.site/" />
-        <meta property="og:title" content="{post?.data.title}" />
+        <meta
+          property="og:url"
+          content={`https://hongduccodedao.site/${slug}`}
+        />
+        <meta property="og:title" content={post?.data.title} />
         <meta property="og:description" content={post?.data.subtitle} />
         <meta property="og:image" content={post?.data.image} />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://hongduccodedao.site/" />
-        <meta property="twitter:title" content="{post?.data.title}" />
+        <meta
+          property="twitter:url"
+          content={`https://hongduccodedao.site/${slug}`}
+        />
+        <meta property="twitter:title" content={post?.data.title} />
         <meta property="twitter:description" content={post?.data.subtitle} />
         <meta property="twitter:image" content={post?.data.image} />
       </Head>
