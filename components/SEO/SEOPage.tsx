@@ -1,16 +1,14 @@
 interface SEOProps {
   title: string;
   description: string;
-  date: string;
   url: string;
   image: string;
 }
 
-export const BlogSEO = ({ title, description, date, url, image }: SEOProps) => {
+export const BlogSEO = ({ title, description, url, image }: SEOProps) => {
   const seo = {
     title,
     description,
-    date,
     url,
     image,
   };

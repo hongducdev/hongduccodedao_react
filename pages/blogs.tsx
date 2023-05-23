@@ -8,31 +8,21 @@ import Loading from "@/components/common/Loading";
 import PostCard from "@/components/common/PostCard";
 import Head from "next/head";
 import Footer from "@/components/common/Footer";
+import fs from "fs";
+import path from "path";
+import { serialize } from "next-mdx-remote/serialize";
+import { InferGetStaticPropsType } from "next";
 
-interface Post {
-  data: {
-    title: string;
-    image: string;
-    slug: string;
-    subtitle: string;
-  };
+interface PostPreview {
+  title: string;
+  image: string;
+  slug: string;
+  subtitle: string;
 }
 
-const blogs = () => {
-  const [posts, setPosts] = React.useState<Post[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get("/api/blogs")
-      .then((res) => {
-        setPosts(res.data.post);
-        setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+const blogs = ({
+  postPreviews,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -89,19 +79,13 @@ const blogs = () => {
           <div className="max-w-[1200px] mx-auto px-5 lg:px-0">
             <HeadingPage title="My Blogs"></HeadingPage>
             <div className="mt-4">
-              {isLoading ? (
-                <Loading />
-              ) : posts && posts.length > 0 ? (
+              {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 grid-cols-1">
-                  {posts.map((post, index) => (
-                    <PostCard key={index} {...post.data} />
+                  {postPreviews.map((post, index) => (
+                    <PostCard key={index} {...post} />
                   ))}
                 </div>
-              ) : (
-                <div className="text-2xl font-bold text-center text-gray-500 dark:text-gray-400">
-                  Error
-                </div>
-              )}
+              }
             </div>
           </div>
         </div>
@@ -112,3 +96,37 @@ const blogs = () => {
 };
 
 export default blogs;
+
+export async function getStaticProps() {
+  // get all MDX files
+  const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
+    return path.extname(postFilePath).toLowerCase() === ".mdx";
+  });
+
+  const postPreviews: PostPreview[] = [];
+
+  // read the frontmatter for each file
+  for (const postFilePath of postFilePaths) {
+    const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
+
+    // serialize the MDX content to a React-compatible format
+    // and parse the frontmatter
+    const serializedPost = await serialize(postFile, {
+      parseFrontmatter: true,
+    });
+
+    postPreviews.push({
+      ...serializedPost.frontmatter,
+      // add the slug to the frontmatter info
+      slug: postFilePath.replace(".mdx", ""),
+    } as PostPreview);
+  }
+
+  return {
+    props: {
+      postPreviews: postPreviews,
+    },
+    // enable ISR
+    revalidate: 60,
+  };
+}
