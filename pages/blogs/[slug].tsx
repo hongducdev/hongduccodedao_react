@@ -4,7 +4,6 @@ import Loading from "@/components/common/Loading";
 import Image from "next/image";
 import Head from "next/head";
 import Footer from "@/components/common/Footer";
-import { BlogSEO } from "@/components/SEO/SEOPage";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
@@ -14,11 +13,64 @@ const Post = ({ source }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
-        <BlogSEO
-          title={source.frontmatter.title as string}
-          description={source.frontmatter.subtitle as string}
-          image={source.frontmatter.image as string}
-          url={`https://hongduccodedao.com/blogs/${source.frontmatter.slug}`}
+        <title>{source.frontmatter.title as string} | hongduccodedao</title>
+        <meta name="title" content={source.frontmatter.title as string}></meta>
+        <meta
+          name="keywords"
+          content="Nguyễn Hồng Đức (hongduccodedao), hongducodedao, Nguyễn Hồng Đức"
+        ></meta>
+        <meta name="author" content="Nguyễn Hồng Đức (hongduccodedao)"></meta>
+        <meta name="geo.region" content="VN"></meta>
+        <meta property="og:locale" content="vi_VN"></meta>
+        <meta name="theme-color" content="#1DC071"></meta>
+        <meta
+          name="description"
+          content={source.frontmatter.subtitle as string}
+        />
+        <meta
+          name="google-site-verification"
+          content="wO7_mXt_nA0dY_Xw1LH7l2YExnqGbSAx0A-mfo72lVs"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="mkiddxmoh9v84vek04vz472wd41n2f"
+        />
+        <meta name="msvalidate.01" content="719E848983AA37F4AA3A04B3616E1F9F" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://hongduccodedao.site/${source.frontmatter.slug}`}
+        />
+        <meta
+          property="og:title"
+          content={source.frontmatter.title as string}
+        />
+        <meta
+          property="og:description"
+          content={source.frontmatter.subtitle as string}
+        />
+        <meta
+          property="og:image"
+          content={source.frontmatter.image as string}
+        />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`https://hongduccodedao.site/${source.frontmatter.slug}`}
+        />
+        <meta
+          property="twitter:title"
+          content={source.frontmatter.title as string}
+        />
+        <meta
+          property="twitter:description"
+          content={source.frontmatter.subtitle as string}
+        />
+        <meta
+          property="twitter:image"
+          content={source.frontmatter.image as string}
         />
       </Head>
       <main>
