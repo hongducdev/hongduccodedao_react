@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LoadingSite from "@/components/common/LoadingSite";
+import { MDXProvider } from "@mdx-js/react";
 
 const inconsolata = Inconsolata({
   subsets: ["latin-ext"],
@@ -38,7 +39,9 @@ export default function App({ Component, pageProps }: AppProps) {
       ) : (
         <Layout>
           <main className={inconsolata.className}>
-            <Component {...pageProps} />
+            <MDXProvider components={{}}>
+              <Component {...pageProps} />
+            </MDXProvider>
             <ToastContainer />
           </main>
         </Layout>

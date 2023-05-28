@@ -1,10 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
-import axios from "axios";
 import HeadingPage from "@/components/common/HeadingPage";
-import Image from "next/image";
-import Link from "next/link";
-import Loading from "@/components/common/Loading";
 import PostCard from "@/components/common/PostCard";
 import Head from "next/head";
 import Footer from "@/components/common/Footer";
@@ -20,7 +16,7 @@ interface PostPreview {
   subtitle: string;
 }
 
-const blogs = ({
+const Blogs = ({
   postPreviews,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -95,29 +91,26 @@ const blogs = ({
   );
 };
 
-export default blogs;
-
 export async function getStaticProps() {
-  // get all MDX files
-  const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
-    return path.extname(postFilePath).toLowerCase() === ".mdx";
-  });
+  const postFilePaths = fs
+    .readdirSync("_posts")
+    .filter(
+      (postFilePath) => path.extname(postFilePath).toLowerCase() === ".mdx"
+    );
 
   const postPreviews: PostPreview[] = [];
 
-  // read the frontmatter for each file
   for (const postFilePath of postFilePaths) {
-    const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
-
-    // serialize the MDX content to a React-compatible format
-    // and parse the frontmatter
+    const postFile = await fs.promises.readFile(
+      `_posts/${postFilePath}`,
+      "utf8"
+    );
     const serializedPost = await serialize(postFile, {
       parseFrontmatter: true,
     });
 
     postPreviews.push({
       ...serializedPost.frontmatter,
-      // add the slug to the frontmatter info
       slug: postFilePath.replace(".mdx", ""),
     } as PostPreview);
   }
@@ -126,7 +119,8 @@ export async function getStaticProps() {
     props: {
       postPreviews: postPreviews,
     },
-    // enable ISR
     revalidate: 60,
   };
 }
+
+export default Blogs;

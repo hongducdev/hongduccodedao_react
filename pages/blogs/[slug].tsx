@@ -1,77 +1,18 @@
 import React from "react";
-import HeadingPage from "@/components/common/HeadingPage";
-import Loading from "@/components/common/Loading";
-import Image from "next/image";
-import Head from "next/head";
-import Footer from "@/components/common/Footer";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import fs from "fs";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import fs from "fs";
+import Image from "next/image";
+import Head from "next/head";
+import HeadingPage from "@/components/common/HeadingPage";
+import Footer from "@/components/common/Footer";
 
 const Post = ({ source }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
-        <title>{source.frontmatter.title as string} | hongduccodedao</title>
-        <meta name="title" content={source.frontmatter.title as string}></meta>
-        <meta
-          name="keywords"
-          content="Nguyễn Hồng Đức (hongduccodedao), hongducodedao, Nguyễn Hồng Đức"
-        ></meta>
-        <meta name="author" content="Nguyễn Hồng Đức (hongduccodedao)"></meta>
-        <meta name="geo.region" content="VN"></meta>
-        <meta property="og:locale" content="vi_VN"></meta>
-        <meta name="theme-color" content="#1DC071"></meta>
-        <meta
-          name="description"
-          content={source.frontmatter.subtitle as string}
-        />
-        <meta
-          name="google-site-verification"
-          content="wO7_mXt_nA0dY_Xw1LH7l2YExnqGbSAx0A-mfo72lVs"
-        />
-        <meta
-          name="facebook-domain-verification"
-          content="mkiddxmoh9v84vek04vz472wd41n2f"
-        />
-        <meta name="msvalidate.01" content="719E848983AA37F4AA3A04B3616E1F9F" />
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://hongduccodedao.site/${source.frontmatter.slug}`}
-        />
-        <meta
-          property="og:title"
-          content={source.frontmatter.title as string}
-        />
-        <meta
-          property="og:description"
-          content={source.frontmatter.subtitle as string}
-        />
-        <meta
-          property="og:image"
-          content={source.frontmatter.image as string}
-        />
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`https://hongduccodedao.site/${source.frontmatter.slug}`}
-        />
-        <meta
-          property="twitter:title"
-          content={source.frontmatter.title as string}
-        />
-        <meta
-          property="twitter:description"
-          content={source.frontmatter.subtitle as string}
-        />
-        <meta
-          property="twitter:image"
-          content={source.frontmatter.image as string}
-        />
+
       </Head>
       <main>
         <div>
@@ -104,31 +45,24 @@ const Post = ({ source }: InferGetStaticPropsType<typeof getStaticProps>) => {
   );
 };
 
-export default Post;
-
 export async function getStaticPaths() {
   return { paths: [], fallback: "blocking" };
 }
 
 export async function getStaticProps(
-  ctx: GetStaticPropsContext<{
-    slug: string;
-  }>
+  ctx: GetStaticPropsContext<{ slug: string }>
 ) {
   const { slug } = ctx.params!;
 
-  // retrieve the MDX blog post file associated
-  // with the specified slug parameter
   const postFile = fs.readFileSync(`_posts/${slug}.mdx`);
 
-  // read the MDX serialized content along with the frontmatter
-  // from the .mdx blog post file
-  const mdxSource = await serialize(postFile, { parseFrontmatter: true });
+  const mdxSource = await serialize(postFile);
+
   return {
     props: {
-      source: mdxSource,
+      source: mdxSource as MDXRemoteSerializeResult,
     },
-    // enable ISR
     revalidate: 60,
   };
 }
+export default Post;
