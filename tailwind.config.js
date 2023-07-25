@@ -6,7 +6,16 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        primary: ["Roboto Mono", "monospace"],
+      }
+    },
   },
-  plugins: [require("@catppuccin/tailwindcss")],
+  plugins: [
+    require("@catppuccin/tailwindcss")({
+      prefix: "ctp",
+      defaultFlavour: "mocha",
+    }),
+  ],
 };
