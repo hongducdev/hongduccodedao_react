@@ -1,16 +1,15 @@
 import Layout from "@/components/layout/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Inconsolata } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LoadingSite from "@/components/common/LoadingSite";
-import { MDXProvider } from "@mdx-js/react";
 
-const inconsolata = Inconsolata({
-  subsets: ["latin-ext"],
+const inconsolata = Roboto_Mono({
+  subsets: ["latin"],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -39,9 +38,7 @@ export default function App({ Component, pageProps }: AppProps) {
       ) : (
         <Layout>
           <main className={inconsolata.className}>
-            <MDXProvider components={{}}>
-              <Component {...pageProps} />
-            </MDXProvider>
+            <Component {...pageProps} />
             <ToastContainer />
           </main>
         </Layout>
