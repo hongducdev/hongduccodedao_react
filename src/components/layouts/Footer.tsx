@@ -11,7 +11,7 @@ const Footer = () => {
       <span className="flex items-center gap-2">
         Powered by{" "}
         {poweredBy.map((item) => (
-          <a href={item.link} key={item.link} className="text-lg">
+          <a href={item.link} key={item.link} className="text-lg hover:text-ctp-green transition-all">
             {item.icon}
           </a>
         ))}

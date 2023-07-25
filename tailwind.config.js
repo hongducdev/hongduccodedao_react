@@ -9,7 +9,20 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ["Roboto Mono", "monospace"],
-      }
+      },
+      keyframes: {
+        pulse2: {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0",
+          },
+        },
+      },
+      animation: {
+        pulse2: "pulse2 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
     },
   },
   plugins: [
