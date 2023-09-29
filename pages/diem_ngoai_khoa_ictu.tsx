@@ -44,6 +44,11 @@ const diem_ngoai_khoa_ictu = () => {
   };
 
   const handleResponse = async (idStudent: string) => {
+    idStudent = idStudent.trim();
+    idStudent = idStudent.replace(/\s+/g, " ");
+    idStudent = idStudent.replace(/ /g, ",");
+    idStudent = idStudent.replace(/,,/g, ",");
+    idStudent = idStudent.toUpperCase();
     try {
       const response = await axios.post(
         "https://api.dhdt.vn/activity/student-score",
