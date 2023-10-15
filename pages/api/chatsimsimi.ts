@@ -8,7 +8,7 @@ export default async function handler(
   const response = await fetch("https://api.simsimi.vn/v1/simtalk", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: JSON.stringify({
       text: text,
@@ -17,6 +17,5 @@ export default async function handler(
   });
 
   const data = await response.json();
-
   res.status(200).json({ data });
 }
