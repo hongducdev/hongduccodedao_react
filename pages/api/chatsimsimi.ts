@@ -24,12 +24,10 @@ export default async function handler(
       "https://api.simsimi.vn/v1/simtalk",
       requestOptions
     );
-    const result = await response.text();
+    const result = await response.json();
     console.log(result);
 
-    const data = { result }; // Assuming you want to return the result as 'data'
-
-    res.status(200).json(data);
+    res.status(200).json(result);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Internal Server Error" });
