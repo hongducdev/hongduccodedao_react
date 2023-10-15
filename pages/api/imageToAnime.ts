@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import fs from "fs";
 
 const api = "https://api.taoanhdep.com/public/anime.php";
 
@@ -21,8 +20,6 @@ export default async function handler(
     const response = await fetch(api, {
       headers: {
         "content-type": "application/x-www-form-urlencoded",
-        'Connection': 'keep-alive',
-        'Keep-Alive': 'timeout=30'
       },
       body: body.toString(),
       method: "POST",

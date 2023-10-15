@@ -39,7 +39,8 @@ const ImageToAnime = () => {
             base64String,
           }, {
             headers: {
-
+              'Connection': 'keep-alive',
+              'Keep-Alive': 'timeout=30',
             }
           });
           setIsLoading(false);
