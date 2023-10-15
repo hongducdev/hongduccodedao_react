@@ -1,5 +1,3 @@
-// pages/api/imageToAnime.ts
-
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 
@@ -16,13 +14,15 @@ export default async function handler(
 
   const { base64String } = req.body;
 
+  const body = new URLSearchParams();
+  body.set('image', base64String);
+
   try {
-    const response = await fetch("https://api.taoanhdep.com/public/anime.php", {
+    const response = await fetch(api, {
       headers: {
         "content-type": "application/x-www-form-urlencoded",
       },
-      referrerPolicy: "no-referrer",
-      body: "image=" + encodeURIComponent(`${base64String}`),
+      body: body.toString(),
       method: "POST",
     });
 

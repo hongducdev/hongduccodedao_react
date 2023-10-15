@@ -52,8 +52,6 @@ const ImageToAnime = () => {
     }
   };
 
-  console.log(uploadedImage);
-
   return (
     <div className="bg-lite dark:bg-darkbg min-h-screen h-full lg:py-[100px] py-[100px]">
       <div className="max-w-[1200px] mx-auto px-5 lg:px-0 text-text1 dark:text-text3">
