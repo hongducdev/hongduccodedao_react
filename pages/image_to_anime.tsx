@@ -37,11 +37,6 @@ const ImageToAnime = () => {
           setIsLoading(true);
           const response = await axios.post("/api/imageToAnime", {
             base64String,
-          }, {
-            headers: {
-              'Connection': 'keep-alive',
-              'Keep-Alive': 'timeout=30',
-            }
           });
           setIsLoading(false);
           setUploadedImage(response.data.img); // Assuming the API returns the URL of the processed image
