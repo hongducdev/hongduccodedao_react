@@ -20,6 +20,9 @@ export default async function handler(
     const response = await fetch(api, {
       headers: {
         "content-type": "application/x-www-form-urlencoded",
+        "Connect": "keep-alive",
+        "Accept": "*/*",
+        "Keep-Alive": "timeout=30, max=1000",
       },
       body: body.toString(),
       method: "POST",
