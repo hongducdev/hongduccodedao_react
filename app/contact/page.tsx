@@ -3,7 +3,7 @@ import React from "react";
 
 const ContactPage = () => {
   return (
-    <div className="max-w-[1200px] w-full mx-auto mt-5 mb-20 md:my-10 flex items-center justify-center flex-col gap-5 px-2 h-[calc(100vh-160px)]">
+    <div className="max-w-[1200px] w-full mx-auto mt-5 mb-20 md:my-10 flex flex-col gap-5 px-2 h-[calc(100vh-80px)]">
       <HeadingText text="Let's Contact" />
       <div className="mt-4">
         <p className="text-xl leading-relaxed">

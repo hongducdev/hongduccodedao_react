@@ -4,6 +4,7 @@ import axios from "axios";
 import HeadingText from "@/components/HeadingText";
 import ProjectItem from "@/components/Project/ProjectItem";
 import { Input } from "@/components/ui/input";
+import { toast } from "../ui/use-toast";
 
 interface ProjectDataProps {
   name: string;
@@ -22,7 +23,7 @@ interface ProjectDataProps {
   updated_at: string;
 }
 
-const Project: React.FC = () => {
+const ProjectsPage: React.FC = () => {
   const [projectData, setProjectData] = useState<ProjectDataProps[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchResults, setSearchResults] = useState<ProjectDataProps[]>([]);
@@ -37,7 +38,10 @@ const Project: React.FC = () => {
         setProjectData(data);
         setSearchResults(data);
       } else {
-        console.log("Error");
+        toast({
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem with your request.",
+        });
       }
     };
 
@@ -52,7 +56,7 @@ const Project: React.FC = () => {
   }, [searchTerm, projectData]);
 
   return (
-    <div className="max-w-[1200px] w-full mx-auto mt-5 mb-20 md:my-10  flex flex-col gap-5 px-2">
+    <div className="max-w-[1200px] w-full mx-auto my-10 flex flex-col gap-5 min-h-[calc(100vh-80px)]">
       <HeadingText text="My Projects" />
       <div className="my-4">
         <Input
@@ -62,7 +66,7 @@ const Project: React.FC = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div className="grid grid-cols-3 gap-5 mt-10">
           {searchResults.length === 0 ? (
             <p>
               No projects found with keyword{" "}
@@ -79,4 +83,4 @@ const Project: React.FC = () => {
   );
 };
 
-export default Project;
+export default ProjectsPage;
