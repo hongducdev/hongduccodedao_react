@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/toaster";
 
 const robotoMono = Roboto_Mono({
   weight: ["400", "500", "600", "700"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         <body className={robotoMono.className}>
           <Header />
           {children}
+          <Toaster />
         </body>
       </ThemeProvider>
     </html>
