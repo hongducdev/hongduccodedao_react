@@ -1,5 +1,12 @@
 import HeadingText from "@/components/HeadingText";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Contact | hongduccodedao",
+  description:
+    "Below is all my contact information on social networks. Feel free to contact me about work or things you can contribute to me. Or you can send me a message via the form below, I will contact you as soon as possible.",
+};
 
 const ContactPage = () => {
   return (

@@ -3,7 +3,14 @@ import Milestone from "@/components/About/Milestone";
 import HeadingText from "@/components/HeadingText";
 import HoverCardCustom from "@/components/HoverCardCustom";
 import { hobbiesArr } from "@/utils/Hobbies";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About | hongduccodedao",
+  description:
+    "Hi, my name is hongduccodedao. Full name is Nguyen Hong Duc. I am a 4th year student majoring in Software Engineering at Thai Nguyen University of Information and Communication Technology (ICTU). I am looking to become a Front-End developer.",
+};
 
 const AboutPage = () => {
   return (
