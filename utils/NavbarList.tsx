@@ -7,16 +7,16 @@ export interface INavbarList {
 
 export const NavbarList: INavbarList[] = [
   {
-    label: "Home",
-    url: paths.HOME,
-  },
-  {
     label: "About",
     url: paths.ABOUT,
   },
   {
     label: "Projects",
     url: paths.PROJECTS,
+  },
+  {
+    label: "Team",
+    url: paths.TEAM,
   },
   {
     label: "Contact",
