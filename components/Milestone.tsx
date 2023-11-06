@@ -6,7 +6,7 @@ interface MilestoneProps {
 
 const Milestone: React.FC<MilestoneProps> = ({ year }) => {
   return <div className="w-full">
-    <h2 className="font-semibold text-3xl mb-4">
+    <h2 className="font-semibold text-3xl mb-4 text-ctp-subtext0">
       {year}
     </h2>
   </div>;

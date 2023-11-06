@@ -7,6 +7,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import Link from "next/link";
 
 interface HoverCardCustomProps {
   avatarLink: string;
@@ -26,7 +27,9 @@ const HoverCardCustom: React.FC<HoverCardCustomProps> = ({
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link" className="text-xl text-ctp-text font-semibold">{name}</Button>
+        <Link href="/" className="text-xl text-ctp-text font-semibold hover:underline px-2">
+          {name}
+        </Link>
       </HoverCardTrigger>
       <HoverCardContent className="w-80 bg-ctp-base">
         <div className="flex justify-between space-x-4">
@@ -37,12 +40,8 @@ const HoverCardCustom: React.FC<HoverCardCustomProps> = ({
             </AvatarFallback>
           </Avatar>
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">
-              {name}
-            </h4>
-            <p className="text-sm">
-              {description}
-            </p>
+            <h4 className="text-sm font-semibold">{name}</h4>
+            <p className="text-sm">{description}</p>
             <div className="flex items-center pt-2">
               <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
               <span className="text-xs text-muted-foreground">

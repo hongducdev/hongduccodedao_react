@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex items-center gap-5 rounded-full fixed left-1/2 -translate-x-1/2 border border-ctp-overlay0 py-3 px-5 bg-ctp-base bg-opacity-30">
+    <nav className="flex items-center gap-5 rounded-full fixed left-1/2 -translate-x-1/2 border border-ctp-overlay0 py-3 px-5 bg-ctp-base bg-opacity-70 backdrop-blur-sm z-50">
       <div className="flex items-center gap-3">
         {NavbarList.map((item) => (
           <div className="relative group inline-block" key={item.url}>

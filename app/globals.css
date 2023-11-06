@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-  @apply relative h-full;
-}
 
 @layer base {
   :root {

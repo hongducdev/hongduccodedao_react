@@ -21,7 +21,7 @@ const HelloWorld = () => {
   }, [charIndex]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[calc(100vh-64px)]">
+    <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)]">
       <span className="text-9xl font-bold">{displayText}</span>
     </div>
   );
