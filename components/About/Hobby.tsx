@@ -1,6 +1,6 @@
 import { IHobby } from "@/utils/Hobbies";
 import React from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 const Hobby: React.FC<IHobby> = ({ title, description, tags }) => {
   return (

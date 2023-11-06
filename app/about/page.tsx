@@ -1,7 +1,7 @@
+import Hobby from "@/components/About/Hobby";
+import Milestone from "@/components/About/Milestone";
 import HeadingText from "@/components/HeadingText";
-import Hobby from "@/components/Hobby";
 import HoverCardCustom from "@/components/HoverCardCustom";
-import Milestone from "@/components/Milestone";
 import { hobbiesArr } from "@/utils/Hobbies";
 import React from "react";
 

@@ -17,7 +17,7 @@ const Social = () => {
               <TooltipTrigger>
                 {item.icon}
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent className="bg-ctp-base">
                 <p>
                   {item.label} - {item.username}
                 </p>
