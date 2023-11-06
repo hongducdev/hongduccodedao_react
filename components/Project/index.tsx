@@ -56,7 +56,7 @@ const ProjectsPage: React.FC = () => {
   }, [searchTerm, projectData]);
 
   return (
-    <div className="max-w-[1200px] w-full mx-auto my-10 flex flex-col gap-5 min-h-[calc(100vh-80px)]">
+    <div className="max-w-[1200px] w-full mx-auto mt-5 mb-20 md:my-10 flex flex-col gap-5 px-2 min-h-[calc(100vh-80px)]">
       <HeadingText text="My Projects" />
       <div className="my-4">
         <Input
@@ -66,7 +66,7 @@ const ProjectsPage: React.FC = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div className="grid grid-cols-3 gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
           {searchResults.length === 0 ? (
             <p>
               No projects found with keyword{" "}
