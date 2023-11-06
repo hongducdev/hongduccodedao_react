@@ -1,7 +1,8 @@
+import Project from "@/components/Project";
 import React from "react";
 
 const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
+  return <Project />;
 };
 
 export default ProjectsPage;

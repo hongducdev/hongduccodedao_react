@@ -7,7 +7,7 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="max-w-[1200px] w-full mx-auto my-10 flex flex-col gap-5 min-h-screen h-full">
+    <div className="max-w-[1200px] w-full mx-auto my-10 flex flex-col gap-5">
       {/* about me */}
       <section>
         <HeadingText text="About me" />
