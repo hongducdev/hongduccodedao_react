@@ -36,12 +36,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center gap-5 rounded-full fixed left-1/2 -translate-x-1/2 border border-ctp-overlay0 py-3 px-5 bg-ctp-base bg-opacity-70 backdrop-blur-sm z-50 bottom-4 md:top-4 w-fit h-fit">
-      <div className="flex items-center gap-3">
+    <nav className="flex items-center gap-3 md:gap-5 rounded-full fixed left-1/2 -translate-x-1/2 border border-ctp-overlay0 py-3 px-5 bg-ctp-base bg-opacity-70 backdrop-blur-sm z-50 bottom-4 md:top-4 w-fit h-fit max-w-[95vw]">
+      <div className="flex items-center gap-2 md:gap-3">
         {NavbarList.map((item) => (
           <div className="relative group inline-block" key={item.url}>
             <Link href={item.url}>
-              <p className="z-20 relative">{item.label}</p>
+              <p className="z-20 relative text-sm lg:text-base">{item.label}</p>
             </Link>
 
             <div
@@ -63,7 +63,7 @@ const Navbar = () => {
         )}
         onClick={handleToggleTheme}
       >
-        {theme === "dark" ? <Sun /> : <MoonStar />}
+        {theme === "dark" ? <Sun size={16} /> : <MoonStar size={16} />}
       </div>
     </nav>
   );
