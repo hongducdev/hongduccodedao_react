@@ -1,4 +1,4 @@
-interface JsonLD {
+interface IJsonLD {
   "@context": string;
   "@type": string;
   address: {
@@ -23,7 +23,7 @@ interface JsonLD {
   sameAs: string[];
 }
 
-export const JsonLD = {
+export const JsonLD:IJsonLD = {
   "@context": "https://schema.org",
   "@type": "Person",
   address: {
