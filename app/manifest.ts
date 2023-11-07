@@ -21,7 +21,7 @@ export default function manifest(): MetadataRoute.Manifest {
     related_applications: [
       {
         platform: "webapp",
-        url: "https://hongduccodedao.vercel.app/manifest.json",
+        url: "https://hongduccodedao.io.vn/manifest.json",
       },
     ],
     scope: "/",

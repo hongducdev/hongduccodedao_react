@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://hongduccodedao.vercel.app/sitemap.xml",
+    sitemap: "https://hongduccodedao.io.vn/sitemap.xml",
   };
 }
