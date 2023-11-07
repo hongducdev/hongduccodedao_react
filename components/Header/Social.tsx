@@ -6,12 +6,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Link from "next/link";
 
 const Social = () => {
   return (
     <div className="flex items-center gap-5">
       {SocialList.map((item) => (
-        <a href={item.url} className="hover:text-ctp-green" key={item.url}>
+        <Link href={item.url} className="hover:text-ctp-green" key={item.url}>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
@@ -24,7 +25,7 @@ const Social = () => {
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </a>
+        </Link>
       ))}
     </div>
   );
