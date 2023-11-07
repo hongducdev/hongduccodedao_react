@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import { Toaster } from "@/components/ui/toaster";
+import Script from "next/script";
+import { JsonLD } from "@/utils/JsonLD";
 
 const robotoMono = Roboto_Mono({
   weight: ["400", "500", "600", "700"],
@@ -33,6 +35,11 @@ export default function RootLayout({
           <Header />
           {children}
           <Toaster />
+          <Script
+            id="json-ld"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(JsonLD) }}
+          />
         </body>
       </ThemeProvider>
     </html>
