@@ -1,3 +1,28 @@
+interface JsonLD {
+  "@context": string;
+  "@type": string;
+  address: {
+    "@type": string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    streetAddress: string;
+  };
+  email: string;
+  image: string;
+  jobTitle: string;
+  name: string;
+  nickname: string;
+  birthPlace: string;
+  birthDate: string;
+  height: string;
+  gender: string;
+  nationality: string;
+  telephone: string;
+  url: string;
+  sameAs: string[];
+}
+
 export const JsonLD = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -13,6 +38,7 @@ export const JsonLD = {
   image: "https://avatars.githubusercontent.com/u/73995275?v=4",
   jobTitle: "Front-end Developer",
   name: "Nguyen Hong Duc",
+  nickname: "hongduccodedao",
   birthPlace: "Yen Bai",
   birthDate: "2002-10-05",
   height: "1.83m",
