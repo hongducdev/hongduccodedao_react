@@ -18,7 +18,7 @@ const TeamItem: React.FC<TeamItemProps> = ({ name, img, github }) => {
         className="rounded-full"
       />
       <div className="relative inline-block mt-4">
-        <p className="text-xl z-20 relative font-medium">{name}</p>
+        <p className="text-xl z-20 relative font-medium text-center">{name}</p>
 
         <div className="absolute w-0 h-1 bg-ctp-green bottom-1 left-0 z-[1] group-hover:w-[80%] group-hover:transition-all group-hover:duration-500"></div>
       </div>
