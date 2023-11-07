@@ -11,6 +11,30 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
 
+  const handleToggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    } else if (theme === "light") {
+      setTheme("dark");
+    } else if (theme === "system") {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        setTheme("light");
+      } else if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches
+      ) {
+        setTheme("dark");
+      } else {
+        throw new Error("Error set theme for this app");
+      }
+    } else {
+      throw new Error("Error set theme for this app");
+    }
+  };
+
   return (
     <nav className="flex items-center gap-5 rounded-full fixed left-1/2 -translate-x-1/2 border border-ctp-overlay0 py-3 px-5 bg-ctp-base bg-opacity-70 backdrop-blur-sm z-50 bottom-4 md:top-4 w-fit h-fit">
       <div className="flex items-center gap-3">
@@ -37,7 +61,7 @@ const Navbar = () => {
             ? "bg-[#dce0e8] text-[#4c4f69]"
             : "bg-[#11111b] text-[#cdd6f4]"
         )}
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        onClick={handleToggleTheme}
       >
         {theme === "dark" ? <Sun /> : <MoonStar />}
       </div>
