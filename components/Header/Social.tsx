@@ -11,7 +11,7 @@ const Social = () => {
   return (
     <div className="flex items-center gap-5">
       {SocialList.map((item) => (
-        <a href={item.url} className="" key={item.url}>
+        <a href={item.url} className="hover:text-ctp-green" key={item.url}>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
