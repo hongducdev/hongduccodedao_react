@@ -20,7 +20,7 @@ const HelloWorld = () => {
     };
   }, [charIndex]);
 
-  return <span className="text-5xl lg:text-9xl font-bold text-center">{displayText}</span>;
+  return <span className="text-7xl lg:text-9xl font-bold text-center max-w-[95vw]">{displayText}</span>;
 };
 
 export default HelloWorld;
