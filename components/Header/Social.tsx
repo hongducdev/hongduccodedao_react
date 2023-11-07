@@ -12,20 +12,20 @@ const Social = () => {
   return (
     <div className="flex items-center gap-5">
       {SocialList.map((item) => (
-        <Link href={item.url} className="hover:text-ctp-green" key={item.url}>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger>
+        <TooltipProvider key={item.url}>
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href={item.url} className="hover:text-ctp-green">
                 {item.icon}
-              </TooltipTrigger>
-              <TooltipContent className="bg-ctp-base">
-                <p>
-                  {item.label} - {item.username}
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </Link>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent className="bg-ctp-base">
+              <p>
+                {item.label} - {item.username}
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       ))}
     </div>
   );
