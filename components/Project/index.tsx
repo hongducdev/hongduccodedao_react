@@ -25,7 +25,7 @@ interface ProjectDataProps {
 
 const getProjects = async () => {
   const response = await axios.get(
-    "https://api.github.com/users/hongduccodedao/repos?per_page=100"
+    "https://api.github.com/users/hongducdev/repos?per_page=100"
   );
   if (response.status === 200) {
     const data = response.data;
